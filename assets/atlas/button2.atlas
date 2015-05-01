@@ -1,0 +1,27 @@
+
+button2.png
+size: 1024,512
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+buttonDownLeft
+  rotate: false
+  xy: 2, 2
+  size: 320, 360
+  orig: 320, 360
+  offset: 0, 0
+  index: -1
+buttonDownRight
+  rotate: false
+  xy: 324, 2
+  size: 320, 360
+  orig: 320, 360
+  offset: 0, 0
+  index: -1
+buttonUp
+  rotate: false
+  xy: 646, 2
+  size: 320, 360
+  orig: 320, 360
+  offset: 0, 0
+  index: -1
