@@ -1,0 +1,5 @@
+/Users/cursan_a/Sozo/android/build/intermediates/classes/debug
+/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/core-1.0-d1e269c993ed48e30d888ab95185e84be274afaf.jar
+/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/gdx-box2d-1.5.6-889bef2bea5cfde9602423828b8d704356ee9c98.jar
+/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/gdx-backend-android-1.5.6-69b978b1ffd186fa56c766e1e08c3894c8a4031a.jar
+/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/gdx-1.5.6-247174d4f439ab4b18e182098fc83ac93245d1fa.jar

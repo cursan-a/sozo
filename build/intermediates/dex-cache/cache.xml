@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/cursan_a/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.5.6/7587cece665b8bbcc8e02171a77cb47a2bf0b155/gdx-box2d-1.5.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7587cece665b8bbcc8e02171a77cb47a2bf0b155">
+        <dex dex="/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/gdx-box2d-1.5.6-889bef2bea5cfde9602423828b8d704356ee9c98.jar" />
+    </item>
+    <item
+        jar="/Users/cursan_a/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-android/1.5.6/3031ab23b99fca1c102ad9fa866aeb06f938b8e2/gdx-backend-android-1.5.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3031ab23b99fca1c102ad9fa866aeb06f938b8e2">
+        <dex dex="/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/gdx-backend-android-1.5.6-69b978b1ffd186fa56c766e1e08c3894c8a4031a.jar" />
+    </item>
+    <item
+        jar="/Users/cursan_a/Sozo/core/build/libs/core-1.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5fedbd63d7dba33d34fe095a9a78055511f9d317">
+        <dex dex="/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/core-1.0-d1e269c993ed48e30d888ab95185e84be274afaf.jar" />
+    </item>
+    <item
+        jar="/Users/cursan_a/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.5.6/93418008f79684e0fbe15d487c82c21b63389f18/gdx-1.5.6.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="93418008f79684e0fbe15d487c82c21b63389f18">
+        <dex dex="/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/gdx-1.5.6-247174d4f439ab4b18e182098fc83ac93245d1fa.jar" />
+    </item>
+
+</items>
