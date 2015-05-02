@@ -15,17 +15,25 @@ import com.cursan.anthony.game.sozo.view.PlayView;
 public class Player {
     private PlayerSprite sprite;
     private Body body;
-    public enum e_control {
-        RIGHT_NONE, LEFT_NONE, RIGHT, LEFT, RIGHT_JUMP, LEFT_JUMP
-    };
-    private e_control control = e_control.RIGHT_NONE;
-    private boolean isJumping = false;
+    public enum e_state {
+        NONE,
+        RUN,
+        JUMP
+    }
+    public enum e_direction {
+        RIGHT,
+        LEFT
+    }
+    private e_state state = e_state.NONE;
+    private e_direction direction = e_direction.RIGHT;
+    private boolean leftDown = false;
+    private boolean rightDown = false;
 
     public void createSprite(float x, float y) {
         sprite = new PlayerSprite(this);
         sprite.setScale(2, 2);
-        sprite.setX(x);//100
-        sprite.setY(y);//500
+        sprite.setX(x);
+        sprite.setY(y);
     }
 
     public void createBody(World world) {
@@ -48,35 +56,27 @@ public class Player {
         shape = new PolygonShape();
         shape.setAsBox(58 / PlayView.PPM, 1 / PlayView.PPM, new Vector2(1 / PlayView.PPM, -60 / PlayView.PPM), 0);
         fixtureDef.shape = shape;
-        fixtureDef.density = 0.025f;
+        fixtureDef.density = 0.001f;
         fixtureDef.isSensor = true;
         body.createFixture(fixtureDef).setUserData("foot");
         shape.dispose();
     }
 
     public void actualizePosition() {
-        switch (control) {
-            case RIGHT_NONE:
-                break;
-            case LEFT_NONE:
-                break;
-            case RIGHT:
-                body.applyForceToCenter(new Vector2(1f, 0), true);
-                break;
-            case LEFT:
-                body.applyForceToCenter(new Vector2(-1f, 0), true);
-                break;
-            case RIGHT_JUMP:
-                body.applyForceToCenter(new Vector2(1f, 0), true);
-                if (!isJumping)
-                    body.applyLinearImpulse(new Vector2(0f, 1.5f), body.getWorldCenter(), true);
-                break;
-            case LEFT_JUMP:
-                body.applyForceToCenter(new Vector2(-1f, 0), true);
-                if (!isJumping)
-                    body.applyLinearImpulse(new Vector2(0f, 1.5f), body.getWorldCenter(), true);
-                break;
-        }
+        this.handleControl();
+        Vector2 velocity = body.getLinearVelocity();
+        if (state != e_state.NONE) {
+            switch (direction) {
+                case RIGHT:
+                    velocity.x = 10f;
+                    break;
+                case LEFT:
+                    velocity.x = -10f;
+                    break;
+            }
+        } else
+            velocity.x = 0f;
+        body.setLinearVelocity(velocity);
         sprite.setPosition(body.getPosition().x * PlayView.PPM - 30, body.getPosition().y * PlayView.PPM - 30);
     }
 
@@ -89,35 +89,72 @@ public class Player {
     }
 
     public void leftDown() {
-        control = (control == e_control.RIGHT) ? e_control.RIGHT_JUMP : e_control.LEFT;
-    }
-
-    public void leftUp() {
-        control = (control == e_control.LEFT) ? e_control.LEFT_NONE : e_control.RIGHT;
-    }
-
-    public void rightDown() {
-        control = (control == e_control.LEFT) ? e_control.LEFT_JUMP : e_control.RIGHT;
-    }
-
-    public void rightUp() {
-        control = (control == e_control.RIGHT) ? e_control.RIGHT_NONE : e_control.LEFT;
-    }
-
-    public void setControl(e_control control) {
-        this.control = control;
+        leftDown = true;
+        switch (state) {
+            case NONE:
+                direction = e_direction.LEFT;
+                state = e_state.RUN;
+                break;
+            case RUN:
+                state = e_state.JUMP;
+                body.applyLinearImpulse(new Vector2(0f, 1.2f), body.getWorldCenter(), true);
+                break;
+            case JUMP:
+                direction = e_direction.LEFT;
+                break;
+        }
         sprite.resetAnimation();
     }
 
-    public e_control getControl() {
-        return control;
+    public void leftUp() {
+        leftDown = false;
+        if (state == e_state.RUN)
+            state = e_state.NONE;
     }
 
-    public boolean isJumping() {
-        return isJumping;
+    public void rightDown() {
+        rightDown = true;
+        switch (state) {
+            case NONE:
+                direction = e_direction.RIGHT;
+                state = e_state.RUN;
+                break;
+            case RUN:
+                state = e_state.JUMP;
+                body.applyLinearImpulse(new Vector2(0f, 1.0f), body.getWorldCenter(), true);
+                break;
+            case JUMP:
+                direction = e_direction.RIGHT;
+                break;
+        }
+        sprite.resetAnimation();
     }
 
-    public void setJumping(boolean isJumping) {
-        this.isJumping = isJumping;
+    public void rightUp() {
+        rightDown = false;
+        if (state == e_state.RUN)
+            state = e_state.NONE;
+    }
+
+    public e_state getState() {
+        return state;
+    }
+
+    private void handleControl() {
+        if (rightDown && !leftDown)
+            direction = e_direction.RIGHT;
+        if (!rightDown && leftDown)
+            direction = e_direction.LEFT;
+        if (state == e_state.NONE && (rightDown || leftDown))
+            state = e_state.RUN;
+    }
+
+    public e_direction getDirection() {
+        return direction;
+    }
+
+    public void isOnTheGround(boolean isOnTheGround) {
+        if (isOnTheGround)
+            state = (leftDown || rightDown) ? e_state.RUN : e_state.NONE;
     }
 }

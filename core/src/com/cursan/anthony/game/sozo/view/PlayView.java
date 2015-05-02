@@ -18,11 +18,14 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.cursan.anthony.game.sozo.GameMaster;
 import com.cursan.anthony.game.sozo.play.Bloc;
 import com.cursan.anthony.game.sozo.play.Gold;
+import com.cursan.anthony.game.sozo.play.Mob;
 import com.cursan.anthony.game.sozo.play.Player;
 import com.cursan.anthony.game.sozo.play.SozoContactListener;
 import com.cursan.anthony.game.sozo.play.SozoMapRenderer;
 import com.cursan.anthony.game.sozo.tools.GameData;
 import com.cursan.anthony.game.sozo.tools.ResourceManager;
+
+import java.util.ArrayList;
 
 /**
  * Created by cursan_a on 30/04/15.
@@ -38,6 +41,8 @@ public class PlayView implements IView {
     private Stage stage;
     private World world;
     private OrthographicCamera gameCamera;
+    private ArrayList<Gold> golds = new ArrayList<Gold>();
+    private ArrayList<Mob> mobs = new ArrayList<Mob>();
 
     public PlayView() {
         this.initCamera();
@@ -49,7 +54,7 @@ public class PlayView implements IView {
 
     private void initCamera() {
         this.gameCamera = new OrthographicCamera();
-        this.gameCamera.setToOrtho(false, GameMaster.GAME_WIDTH, GameMaster.GAME_HEIGHT);
+        this.gameCamera.setToOrtho(false, 1920, 1080);//GameMaster.GAME_WIDTH, GameMaster.GAME_HEIGHT);
         this.gameCamera.update();
     }
 
@@ -88,6 +93,17 @@ public class PlayView implements IView {
                               (Float) goldMapObject.getProperties().get("y"));
             mapRenderer.addSprite(gold.getSprite());
             gold.createBody(world);
+            golds.add(gold);
+        }
+
+        MapLayer mobsLayer = tiledMap.getLayers().get("mobs");
+        for (MapObject mobMapObject : mobsLayer.getObjects()) {
+            Mob mob = new Mob();
+            mob.createSprite((Float) mobMapObject.getProperties().get("x"),
+                    (Float) mobMapObject.getProperties().get("y"));
+            mapRenderer.addSprite(mob.getSprite());
+            mob.createBody(world);
+            mobs.add(mob);
         }
     }
 
@@ -148,6 +164,8 @@ public class PlayView implements IView {
     public void render(float timeElapsed) {
         world.step(timeElapsed, 6, 2);
         player.actualizePosition();
+        for (Mob mob : mobs)
+            mob.updateBehavior(player);
         gameCamera.position.set(player.getSprite().getX(), player.getSprite().getY() + 120, 0);
         gameCamera.update();
         mapRenderer.setView(gameCamera);
@@ -157,5 +175,14 @@ public class PlayView implements IView {
 
     public Player getPlayer() {
         return player;
+    }
+
+    public void playerCatchGold(Gold gold) {
+        if (golds.contains(gold)) {
+            //world.destroyBody(gold.getBody());
+            mapRenderer.removeSprite(gold.getSprite());
+            golds.remove(gold);
+            ResourceManager.getInstance().getSound("valid").play();
+        }
     }
 }

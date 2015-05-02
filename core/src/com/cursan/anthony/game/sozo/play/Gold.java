@@ -24,7 +24,7 @@ public class Gold {
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.StaticBody;
         bodyDef.position.set(sprite.getX() / PlayView.PPM, sprite.getY() / PlayView.PPM);
-        Body body = world.createBody(bodyDef);
+        body = world.createBody(bodyDef);
         FixtureDef fixtureDef = new FixtureDef();
         CircleShape circleShape = new CircleShape();
         circleShape .setRadius(8 / PlayView.PPM);

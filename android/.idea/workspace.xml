@@ -39,55 +39,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="GameMaster.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/GameMaster.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="886" max-vertical-offset="3300">
-              <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="73" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4457#4458#0" expanded="true" />
-                <element signature="e#4521#4522#0" expanded="true" />
-                <element signature="e#6752#6753#0" expanded="true" />
-                <element signature="e#6783#6784#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PlayView.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/PlayView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.66292137" vertical-offset="1654" max-vertical-offset="2475">
-              <caret line="126" column="57" selection-start-line="126" selection-start-column="57" selection-end-line="126" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MenuView.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/MenuView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="885">
-              <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="22" selection-end-column="109" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SozoContactListener.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="SozoContactListener.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoContactListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="409" max-vertical-offset="1020">
-              <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.9928401" vertical-offset="424" max-vertical-offset="1140">
+              <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#514#515#0" expanded="true" />
-                <element signature="e#542#543#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1138,10 +1096,8 @@
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/PikachuActor.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/PikachuActor.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/PikachuActorOld.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/tools/ASpriteAnimated.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/SozoGameOld.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/IView.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoMapRenderer.java" />
         <option value="$PROJECT_DIR$/assets/atlas/menuButton.atlas" />
         <option value="$PROJECT_DIR$/build/intermediates/manifests/full/debug/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
@@ -1149,14 +1105,19 @@
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/StartView.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/SelectLevelView.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/tools/ResourceManager.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/GameMaster.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/PlayerSprite.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoContactListener.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/GoldSprite.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoMapRenderer.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Gold.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Bloc.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/GoldSprite.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoContactListener.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/GameMaster.java" />
+        <option value="$PROJECT_DIR$/assets/atlas/mob.atlas" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/PlayView.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/PlayerSprite.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/tools/ASpriteAnimated.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/MobSprite.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Mob.java" />
       </list>
     </option>
   </component>
@@ -1648,7 +1609,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286119" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45609066" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36685553" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1821,14 +1782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/tools/ASpriteAnimated.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31105992" vertical-offset="0" max-vertical-offset="434">
-          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.5.6/478a70a74278275ea7a73ae1bf4519c5162ff388/gdx-1.5.6-sources.jar!/com/badlogic/gdx/scenes/scene2d/ui/Button.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.011876484" vertical-offset="1915" max-vertical-offset="3375">
@@ -1858,12 +1811,12 @@
         <state vertical-scroll-proportion="0.24193548" vertical-offset="0" max-vertical-offset="450">
           <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding>
-            <element signature="e#269#270#0" expanded="true" />
-            <element signature="e#309#310#0" expanded="true" />
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#405#406#0" expanded="true" />
-            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#269#270#0" expanded="false" />
+            <element signature="e#309#310#0" expanded="false" />
+            <element signature="e#338#339#0" expanded="false" />
+            <element signature="e#366#367#0" expanded="false" />
+            <element signature="e#405#406#0" expanded="false" />
+            <element signature="e#439#440#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1930,29 +1883,25 @@
         <state vertical-scroll-proportion="0.6889401" vertical-offset="136" max-vertical-offset="1185">
           <caret line="29" column="5" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#472#489#0" expanded="true" />
-            <element signature="e#548#563#0" expanded="true" />
-            <element signature="e#622#637#0" expanded="true" />
-            <element signature="e#710#732#0" expanded="true" />
-            <element signature="e#824#825#0" expanded="true" />
-            <element signature="e#871#872#0" expanded="true" />
-            <element signature="e#1447#1448#0" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
-            <element signature="e#1529#1530#0" expanded="true" />
-            <element signature="e#1568#1569#0" expanded="true" />
-            <element signature="e#1609#1610#0" expanded="true" />
-            <element signature="e#1648#1649#0" expanded="true" />
-            <element signature="e#1703#1704#0" expanded="true" />
-            <element signature="e#1749#1750#0" expanded="true" />
-            <element signature="e#1795#1796#0" expanded="true" />
-            <element signature="e#1832#1833#0" expanded="true" />
-            <element signature="e#1875#1876#0" expanded="true" />
-            <element signature="e#1910#1911#0" expanded="true" />
-            <element signature="e#1953#1954#0" expanded="true" />
-            <element signature="e#1988#1989#0" expanded="true" />
-            <element signature="e#2038#2039#0" expanded="true" />
-            <element signature="e#2080#2081#0" expanded="true" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#824#825#0" expanded="false" />
+            <element signature="e#871#872#0" expanded="false" />
+            <element signature="e#1447#1448#0" expanded="false" />
+            <element signature="e#1488#1489#0" expanded="false" />
+            <element signature="e#1529#1530#0" expanded="false" />
+            <element signature="e#1568#1569#0" expanded="false" />
+            <element signature="e#1609#1610#0" expanded="false" />
+            <element signature="e#1648#1649#0" expanded="false" />
+            <element signature="e#1703#1704#0" expanded="false" />
+            <element signature="e#1749#1750#0" expanded="false" />
+            <element signature="e#1795#1796#0" expanded="false" />
+            <element signature="e#1832#1833#0" expanded="false" />
+            <element signature="e#1875#1876#0" expanded="false" />
+            <element signature="e#1910#1911#0" expanded="false" />
+            <element signature="e#1953#1954#0" expanded="false" />
+            <element signature="e#1988#1989#0" expanded="false" />
+            <element signature="e#2038#2039#0" expanded="false" />
+            <element signature="e#2080#2081#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1962,90 +1911,6 @@
         <state vertical-scroll-proportion="0.33277592" vertical-offset="686" max-vertical-offset="1710">
           <caret line="83" column="16" selection-start-line="83" selection-start-column="16" selection-end-line="83" selection-end-column="16" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/PlayerSprite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1305">
-          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
-          <folding>
-            <element signature="e#3360#3361#0" expanded="true" />
-            <element signature="e#3400#3401#0" expanded="true" />
-            <element signature="e#3436#3437#0" expanded="true" />
-            <element signature="e#3471#3472#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoContactListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="409" max-vertical-offset="1020">
-          <caret line="48" column="42" selection-start-line="48" selection-start-column="42" selection-end-line="48" selection-end-column="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#514#515#0" expanded="true" />
-            <element signature="e#542#543#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="212" max-vertical-offset="1935">
-          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2985#2986#0" expanded="true" />
-            <element signature="e#3014#3015#0" expanded="true" />
-            <element signature="e#3043#3044#0" expanded="true" />
-            <element signature="e#3070#3071#0" expanded="true" />
-            <element signature="e#3719#3720#0" expanded="true" />
-            <element signature="e#3749#3750#0" expanded="true" />
-            <element signature="e#3783#3784#0" expanded="true" />
-            <element signature="e#3815#3816#0" expanded="true" />
-            <element signature="e#3864#3865#0" expanded="true" />
-            <element signature="e#3906#3907#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Bloc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="124" max-vertical-offset="705">
-          <caret line="20" column="40" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1132#1133#0" expanded="true" />
-            <element signature="e#1156#1157#0" expanded="true" />
-            <element signature="e#1183#1184#0" expanded="true" />
-            <element signature="e#1207#1208#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoMapRenderer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="244" max-vertical-offset="675">
-          <caret line="22" column="22" selection-start-line="22" selection-start-column="22" selection-end-line="22" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#564#581#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Gold.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="214" max-vertical-offset="750">
-          <caret line="18" column="28" selection-start-line="18" selection-start-column="28" selection-end-line="18" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1239#1240#0" expanded="true" />
-            <element signature="e#1268#1269#0" expanded="true" />
-            <element signature="e#1297#1298#0" expanded="true" />
-            <element signature="e#1324#1325#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2079,32 +1944,145 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/MenuView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="885">
-          <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="22" selection-end-column="109" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="361" max-vertical-offset="885">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="39" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/GameMaster.java">
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Bloc.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="886" max-vertical-offset="3300">
-          <caret line="70" column="31" selection-start-line="70" selection-start-column="31" selection-end-line="73" selection-end-column="29" />
+        <state vertical-scroll-proportion="0.7422434" vertical-offset="124" max-vertical-offset="645">
+          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4457#4458#0" expanded="true" />
-            <element signature="e#4521#4522#0" expanded="true" />
-            <element signature="e#6752#6753#0" expanded="true" />
-            <element signature="e#6783#6784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/atlas/mob.atlas">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9689738" vertical-offset="0" max-vertical-offset="915">
+          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/atlas/mob.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Mob.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77832514" vertical-offset="404" max-vertical-offset="1575">
+          <caret line="48" column="8" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1601#1602#0" expanded="true" />
+            <element signature="e#1633#1634#0" expanded="true" />
+            <element signature="e#1666#1667#0" expanded="true" />
+            <element signature="e#1694#1695#0" expanded="true" />
+            <element signature="e#1730#1731#0" expanded="true" />
+            <element signature="e#1759#1760#0" expanded="true" />
+            <element signature="e#1788#1789#0" expanded="true" />
+            <element signature="e#1815#1816#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/PlayView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.66292137" vertical-offset="1654" max-vertical-offset="2475">
-          <caret line="126" column="57" selection-start-line="126" selection-start-column="57" selection-end-line="126" selection-end-column="57" />
+        <state vertical-scroll-proportion="1.1097852" vertical-offset="1020" max-vertical-offset="1935">
+          <caret line="162" column="13" selection-start-line="162" selection-start-column="13" selection-end-line="162" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1673#1679#0" expanded="true" />
+            <element signature="method#initCamera#0;class#PlayView#0" expanded="false" />
+            <element signature="method#initLevel#0;class#PlayView#0" expanded="false" />
+            <element signature="method#initPlayer#0;class#PlayView#0" expanded="false" />
+            <element signature="method#initGui#0;class#PlayView#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/GameMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.0763723" vertical-offset="1726" max-vertical-offset="3315">
+          <caret line="87" column="72" selection-start-line="87" selection-start-column="72" selection-end-line="87" selection-end-column="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4539#4540#0" expanded="true" />
+            <element signature="e#4603#4604#0" expanded="true" />
+            <element signature="e#6834#6835#0" expanded="true" />
+            <element signature="e#6865#6866#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Gold.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28400955" vertical-offset="226" max-vertical-offset="690">
+          <caret line="23" column="40" selection-start-line="23" selection-start-column="40" selection-end-line="23" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoMapRenderer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1002387" vertical-offset="124" max-vertical-offset="705">
+          <caret line="44" column="36" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#564#581#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/tools/ASpriteAnimated.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3579952" vertical-offset="0" max-vertical-offset="419">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/MobSprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1502463" vertical-offset="494" max-vertical-offset="1020">
+          <caret line="37" column="35" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/PlayerSprite.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9211823" vertical-offset="375" max-vertical-offset="1275">
+          <caret line="81" column="5" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44334975" vertical-offset="1245" max-vertical-offset="2370">
+          <caret line="99" column="59" selection-start-line="99" selection-start-column="59" selection-end-line="99" selection-end-column="59" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoContactListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9928401" vertical-offset="424" max-vertical-offset="1140">
+          <caret line="58" column="46" selection-start-line="58" selection-start-column="46" selection-end-line="58" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

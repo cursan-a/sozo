@@ -7,6 +7,14 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
  */
 public abstract class ASpriteAnimated extends Sprite {
 
-    public abstract void update(float delta);
+    protected float animationCursor = 0;
+
+    public void resetAnimation() {
+        animationCursor = 0;
+    }
+
+    public void update(float delta) {
+        animationCursor += delta;
+    }
 
 }

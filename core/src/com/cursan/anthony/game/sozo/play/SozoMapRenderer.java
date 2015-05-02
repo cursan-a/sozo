@@ -40,4 +40,8 @@ public class SozoMapRenderer extends OrthogonalTiledMapRenderer {
     public void addSprite(ASpriteAnimated sprite) {
         this.sprites.add(sprite);
     }
+
+    public void removeSprite(ASpriteAnimated sprite) {
+        this.sprites.remove(sprite);
+    }
 }

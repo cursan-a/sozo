@@ -24,12 +24,22 @@ public class SozoContactListener implements ContactListener {
         if(fa == null || fb == null)
             return;
 
-        if (fa.getUserData() != null && fa.getUserData().equals("foot")) {
-            pv.getPlayer().setJumping(false);
+        if (fa.getUserData() != null && fa.getUserData().equals("foot") &&
+            fb.getUserData() != null && fb.getUserData().equals("bloc")) {
+            pv.getPlayer().isOnTheGround(true);
         }
 
-        if (fb.getUserData() != null && fb.getUserData().equals("foot")) {
-            pv.getPlayer().setJumping(false);
+        if (fb.getUserData() != null && fb.getUserData().equals("foot") &&
+            fa.getUserData() != null && fa.getUserData().equals("bloc")) {
+            pv.getPlayer().isOnTheGround(true);
+        }
+
+        if (fa.getUserData() != null && fa.getUserData().getClass().equals(Gold.class)) {
+            pv.playerCatchGold((Gold)fa.getUserData());
+        }
+
+        if (fb.getUserData() != null && fb.getUserData().getClass().equals(Gold.class)) {
+            pv.playerCatchGold((Gold)fb.getUserData());
         }
     }
 
@@ -42,11 +52,11 @@ public class SozoContactListener implements ContactListener {
             return;
 
         if (fa.getUserData() != null && fa.getUserData().equals("foot")) {
-            pv.getPlayer().setJumping(true);
+            pv.getPlayer().isOnTheGround(false);
         }
 
         if (fb.getUserData() != null && fb.getUserData().equals("foot")) {
-            pv.getPlayer().setJumping(true);
+            pv.getPlayer().isOnTheGround(false);
         }
     }
 

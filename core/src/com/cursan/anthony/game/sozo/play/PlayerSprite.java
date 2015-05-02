@@ -17,7 +17,6 @@ public class PlayerSprite extends ASpriteAnimated {
     private Animation leftAnimation;
     private Animation rightJumpAnimation;
     private Animation leftJumpAnimation;
-    private float animationCursor = 0;
     private Player player;
 
     public PlayerSprite(Player player) {
@@ -52,34 +51,33 @@ public class PlayerSprite extends ASpriteAnimated {
 
     @Override
     public void draw(Batch batch) {
-        switch (player.getControl()) {
-            case RIGHT_NONE:
-                batch.draw(this.rightNone, this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
-                break;
-            case LEFT_NONE:
-                batch.draw(this.leftNone, this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
-                break;
+        switch (player.getDirection()) {
             case RIGHT:
-                batch.draw(rightAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
+                switch (player.getState()) {
+                    case NONE:
+                        batch.draw(this.rightNone, this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
+                        break;
+                    case RUN:
+                        batch.draw(rightAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
+                        break;
+                    case JUMP:
+                        batch.draw(rightJumpAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
+                        break;
+                }
                 break;
             case LEFT:
-                batch.draw(leftAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
-                break;
-            case RIGHT_JUMP:
-                batch.draw(rightJumpAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
-                break;
-            case LEFT_JUMP:
-                batch.draw(leftJumpAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
+                switch (player.getState()) {
+                    case NONE:
+                        batch.draw(this.leftNone, this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
+                        break;
+                    case RUN:
+                        batch.draw(leftAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
+                        break;
+                    case JUMP:
+                        batch.draw(leftJumpAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
+                        break;
+                }
                 break;
         }
-    }
-
-    @Override
-    public void update(float delta) {
-        animationCursor += delta;
-    }
-
-    public void resetAnimation() {
-        animationCursor = 0;
     }
 }
