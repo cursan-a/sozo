@@ -45,6 +45,7 @@ public class PlayView implements IView {
     private Stage stage;
     private World world;
     private OrthographicCamera gameCamera;
+    private SozoContactListener contactListener;
     private ArrayList<Gold> golds = new ArrayList<Gold>();
     private ArrayList<Mob> mobs = new ArrayList<Mob>();
     private float startx = 100;
@@ -79,7 +80,8 @@ public class PlayView implements IView {
 
     private void initCollision() {
         world = new World(new Vector2(0, -25f), true);
-        world.setContactListener(new SozoContactListener(this));
+        contactListener = new SozoContactListener();
+        world.setContactListener(contactListener);
 
         TiledMapTileLayer blocsLayer = (TiledMapTileLayer)tiledMap.getLayers().get("blocs");
         for (int x = 0; x < blocsLayer.getWidth(); x++)
@@ -198,6 +200,7 @@ public class PlayView implements IView {
     public void render(float timeElapsed) {
         world.step(timeElapsed, 6, 2);
         player.actualizePosition();
+        handleCollision();
         for (Mob mob : mobs)
             mob.updateBehavior(player);
         gameCamera.position.set(player.getSprite().getX(), player.getSprite().getY() + 120, 0);
@@ -207,22 +210,45 @@ public class PlayView implements IView {
         stage.draw();
     }
 
-    public Player getPlayer() {
-        return player;
+    private void handleCollision() {
+        Mob playerSlewBy = contactListener.getPlayerSlewBy();
+        for (Mob mob : contactListener.getMobsSlew()) {
+            if (mobs.contains(mob)) {
+                world.destroyBody(mob.getBody());
+                mapRenderer.removeSprite(mob.getSprite());
+                mobs.remove(mob);
+                currentScore += 35;
+                ResourceManager.getInstance().getSound("valid").play();
+                if (mob.equals(playerSlewBy))
+                    playerSlewBy = null;
+            }
+        }
+        contactListener.getMobsSlew().clear();
+        for (Gold gold : contactListener.getGoldsCatched()) {
+            if (golds.contains(gold)) {
+                world.destroyBody(gold.getBody());
+                mapRenderer.removeSprite(gold.getSprite());
+                golds.remove(gold);
+                currentScore += 8;
+                ResourceManager.getInstance().getSound("valid").play();
+            }
+        }
+        contactListener.getGoldsCatched().clear();
+        player.isOnTheGround(contactListener.isPlayerIsOnTheGround());
+
+        if (playerSlewBy != null || player.getSprite().getY() < -1000) {
+            currentScore = 0;
+            endGame();
+        }
+
+        if (contactListener.isGameTerminated())
+            endGame();
     }
 
-    public void playerCatchGold(Gold gold) {
-        if (golds.contains(gold)) {
-            //world.destroyBody(gold.getBody());
-            mapRenderer.removeSprite(gold.getSprite());
-            golds.remove(gold);
-            currentScore += 8;
-            ResourceManager.getInstance().getSound("valid").play();
-        }
-    }
 
     public void endGame() {
         GameData.getInstance().setScore(currentScore);
+        System.out.println(currentScore + " | " + GameData.getInstance().getScore());
         GameMaster.getInstance().setState(GameMaster.e_state.SCORE_VIEW, true);
     }
 

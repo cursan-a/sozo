@@ -79,7 +79,7 @@ public class SelectLevelView implements IView {
         });
 
         this.ret = new TextButton("<", style);
-        this.ret.setPosition(25, 5);//GameMaster.GAME_HEIGHT - 30);
+        this.ret.setPosition(25, 5);
         this.ret.setWidth(50);
         this.ret.setHeight(50);
         this.ret.setStyle(style);

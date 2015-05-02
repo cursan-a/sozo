@@ -1,5 +1,6 @@
 package com.cursan.anthony.game.sozo.play;
 
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
@@ -66,7 +67,7 @@ public class Mob {
     }
 
     public void updateBehavior(Player player) {
-        /*double distance = Math.sqrt(
+        double distance = Math.sqrt(
                 Math.pow((double)(player.getSprite().getX() - this.sprite.getX()), 2.0) +
                 Math.pow((double)(player.getSprite().getY() - this.sprite.getY()), 2.0));
         if (distance < 400 && distance > 10) {
@@ -74,8 +75,8 @@ public class Mob {
                 this.state = e_state.RUN;
                 this.sprite.resetAnimation();
                 hunt = true;
+                this.direction = (player.getSprite().getX() < this.sprite.getX()) ? e_direction.LEFT : e_direction.RIGHT;
             }
-            this.direction = (player.getSprite().getX() < this.sprite.getX()) ? e_direction.LEFT : e_direction.RIGHT;
         } else {
             hunt = false;
             this.state = e_state.NONE;
@@ -92,7 +93,7 @@ public class Mob {
             }
         } else
             velocity.x = 0f;
-        body.setLinearVelocity(velocity);*/
+        body.setLinearVelocity(velocity);
         sprite.setPosition(body.getPosition().x * PlayView.PPM, body.getPosition().y * PlayView.PPM);
     }
 }

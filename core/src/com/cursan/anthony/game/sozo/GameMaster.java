@@ -132,8 +132,25 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
     }
 
     public void setState(e_state state, boolean delete) {
-        if (delete)
-            this.playView = null;
+        if (delete) {
+            switch (this.state) {
+                case START:
+                    startView = null;
+                    break;
+                case MENU:
+                    menuView = null;
+                    break;
+                case SELECT_LEVEL:
+                    selectLevelView = null;
+                    break;
+                case PLAY:
+                    playView = null;
+                    break;
+                case SCORE_VIEW:
+                    scoreView = null;
+                    break;
+            }
+        }
         setState(state);
     }
 

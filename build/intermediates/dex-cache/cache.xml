@@ -19,7 +19,7 @@
         jar="/Users/cursan_a/Sozo/core/build/libs/core-1.0.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="f65e10ba84612071ecadc7269b5c98a30e8e4a8e">
+        sha1="4e4108a8e829926fcd82e033c3c13e037131f0a0">
         <dex dex="/Users/cursan_a/Sozo/android/build/intermediates/pre-dexed/debug/core-1.0-d1e269c993ed48e30d888ab95185e84be274afaf.jar" />
     </item>
     <item
