@@ -63,18 +63,31 @@ public class PlayView implements IView {
     private void initCollision() {
         world = new World(new Vector2(0, -25f), true);
         world.setContactListener(new SozoContactListener(this));
+
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
         bodyDef.position.set(playerSprite.getX() / PPM, playerSprite.getY() / PPM);
         bodyDef.fixedRotation = true;
         playerBody = world.createBody(bodyDef);
+
         PolygonShape shape = new PolygonShape();
+
         shape.setAsBox(60 / PPM, 60 / PPM);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 0.025f;
         Fixture fixture = playerBody.createFixture(fixtureDef);
         shape.dispose();
+
+        shape = new PolygonShape();
+        shape.setAsBox(10 / PPM, 1 / PPM, new Vector2(25 / PPM, -60 / PPM), 0);
+        fixtureDef.shape = shape;
+        fixtureDef.density = 0.025f;
+        fixtureDef.isSensor = true;
+        playerBody.createFixture(fixtureDef).setUserData("foot");
+        shape.dispose();
+        playerBody.setUserData("player");
+
         TiledMapTileLayer objects = (TiledMapTileLayer)tiledMap.getLayers().get("objets");
         for (int x = 0; x < objects.getWidth(); x++)
             for (int y = 0; y < objects.getHeight(); y++) {

@@ -3,6 +3,7 @@ package com.cursan.anthony.game.sozo.play;
 import com.badlogic.gdx.physics.box2d.Contact;
 import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
+import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.cursan.anthony.game.sozo.view.PlayView;
 
@@ -17,13 +18,26 @@ public class SozoContactListener implements ContactListener {
 
     @Override
     public void beginContact(Contact contact) {
-        System.out.println("Begin !");
-        pv.isJumping = false;
+        Fixture fa = contact.getFixtureA();
+        Fixture fb = contact.getFixtureB();
+
+        if(fa == null || fb == null)
+            return;
+
+        if (fa.getUserData() != null && fa.getUserData().equals("foot")) {
+            pv.isJumping = false;
+            System.out.println("Foot touch ground !");
+        }
+
+        if (fa.getUserData() != null && fa.getUserData().equals("foot")) {
+            pv.isJumping = false;
+            System.out.println("Foot touch ground !");
+        }
     }
 
     @Override
     public void endContact(Contact contact) {
-        System.out.println("End !");
+
     }
 
     @Override

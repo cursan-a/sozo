@@ -8,7 +8,7 @@
  </tileset>
  <layer name="objets" width="50" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjZBgegHGgHUAFwMgw6o/BBEb9MbjAqD8GFxhu/hgOGABiLABE
+   eJxjZGBgYBwmeKiDUX8MLjDqj8EFRv0xuMBw88dwwADN5wB1
   </data>
  </layer>
  <objectgroup name="sprites"/>
