@@ -11,7 +11,6 @@ import com.cursan.anthony.game.sozo.tools.ASpriteAnimated;
  */
 public class PlayerSprite extends ASpriteAnimated {
 
-    private TextureAtlas atlas;
     private TextureAtlas.AtlasRegion rightNone;
     private TextureAtlas.AtlasRegion leftNone;
     private Animation rightAnimation;
@@ -19,15 +18,12 @@ public class PlayerSprite extends ASpriteAnimated {
     private Animation rightJumpAnimation;
     private Animation leftJumpAnimation;
     private float animationCursor = 0;
+    private Player player;
 
-    public enum e_control {
-        RIGHT_NONE, LEFT_NONE, RIGHT, LEFT, RIGHT_JUMP, LEFT_JUMP
-    };
-    private e_control control = e_control.RIGHT_NONE;
-
-    public PlayerSprite() {
+    public PlayerSprite(Player player) {
         super();
-        atlas = new TextureAtlas(Gdx.files.internal("atlas/pikachu.atlas"));
+        this.player = player;
+        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlas/pikachu.atlas"));
         setBounds(0, 0, 60, 60);
         rightNone = atlas.findRegion("0000");
         leftNone = atlas.findRegion("0001");
@@ -56,7 +52,7 @@ public class PlayerSprite extends ASpriteAnimated {
 
     @Override
     public void draw(Batch batch) {
-        switch (this.control) {
+        switch (player.getControl()) {
             case RIGHT_NONE:
                 batch.draw(this.rightNone, this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
                 break;
@@ -76,12 +72,6 @@ public class PlayerSprite extends ASpriteAnimated {
                 batch.draw(leftJumpAnimation.getKeyFrame(animationCursor, true), this.getX(), this.getY(), this.getScaleX() * this.getWidth(), this.getScaleY() * this.getHeight());
                 break;
         }
-        /*ShapeRenderer sr = new ShapeRenderer();
-        sr.setProjectionMatrix(batch.getProjectionMatrix());
-        sr.begin(ShapeRenderer.ShapeType.Line);
-        sr.setColor(Color.RED);
-        sr.rect(this.getX(), this.getY(), 120, 120);
-        sr.end();*/
     }
 
     @Override
@@ -89,28 +79,7 @@ public class PlayerSprite extends ASpriteAnimated {
         animationCursor += delta;
     }
 
-    private void setControl(e_control control) {
-        this.control = control;
+    public void resetAnimation() {
         animationCursor = 0;
-    }
-
-    public void leftDown() {
-        setControl((control == e_control.RIGHT) ? e_control.RIGHT_JUMP : e_control.LEFT);
-    }
-
-    public void leftUp() {
-        setControl((control == e_control.LEFT) ? e_control.LEFT_NONE : e_control.RIGHT);
-    }
-
-    public void rightDown() {
-        setControl((control == e_control.LEFT) ? e_control.LEFT_JUMP : e_control.RIGHT);
-    }
-
-    public void rightUp() {
-        setControl((control == e_control.RIGHT) ? e_control.RIGHT_NONE : e_control.LEFT);
-    }
-
-    public e_control getControl() {
-        return control;
     }
 }

@@ -25,19 +25,29 @@ public class SozoContactListener implements ContactListener {
             return;
 
         if (fa.getUserData() != null && fa.getUserData().equals("foot")) {
-            pv.isJumping = false;
-            System.out.println("Foot touch ground !");
+            pv.getPlayer().setJumping(false);
         }
 
-        if (fa.getUserData() != null && fa.getUserData().equals("foot")) {
-            pv.isJumping = false;
-            System.out.println("Foot touch ground !");
+        if (fb.getUserData() != null && fb.getUserData().equals("foot")) {
+            pv.getPlayer().setJumping(false);
         }
     }
 
     @Override
     public void endContact(Contact contact) {
+        Fixture fa = contact.getFixtureA();
+        Fixture fb = contact.getFixtureB();
 
+        if(fa == null || fb == null)
+            return;
+
+        if (fa.getUserData() != null && fa.getUserData().equals("foot")) {
+            pv.getPlayer().setJumping(true);
+        }
+
+        if (fb.getUserData() != null && fb.getUserData().equals("foot")) {
+            pv.getPlayer().setJumping(true);
+        }
     }
 
     @Override

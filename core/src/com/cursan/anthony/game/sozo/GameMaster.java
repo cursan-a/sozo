@@ -84,6 +84,7 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
         ResourceManager.getInstance().loadTextureAtlas("menuButton", "atlas/menuButton.atlas");
         ResourceManager.getInstance().loadTextureAtlas("button", "atlas/button.atlas");
         ResourceManager.getInstance().loadTextureAtlas("button2", "atlas/button2.atlas");
+        ResourceManager.getInstance().loadTextureAtlas("gold", "atlas/gold.atlas");
     }
 
     private void initControl() {

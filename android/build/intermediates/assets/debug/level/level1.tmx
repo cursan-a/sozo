@@ -1,15 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="10" tilewidth="60" tileheight="60" nextobjectid="11">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="10" tilewidth="60" tileheight="60" nextobjectid="23">
  <tileset firstgid="1" name="box" tilewidth="60" tileheight="60">
   <image source="../img/box.png" width="60" height="60"/>
  </tileset>
  <tileset firstgid="2" name="ground" tilewidth="60" tileheight="60">
   <image source="../img/ground.png" width="60" height="60"/>
  </tileset>
- <layer name="objets" width="50" height="10">
+ <layer name="blocs" width="50" height="10">
   <data encoding="base64" compression="zlib">
    eJxjZGBgYBwmeKiDUX8MLjDqj8EFRv0xuMBw88dwwADN5wB1
   </data>
  </layer>
+ <objectgroup name="golds">
+  <object id="14" x="844.175" y="384.266">
+   <ellipse/>
+  </object>
+  <object id="15" x="1334.34" y="387.292">
+   <ellipse/>
+  </object>
+  <object id="16" x="2036.31" y="399.395">
+   <ellipse/>
+  </object>
+  <object id="17" x="2571.86" y="411.498">
+   <ellipse/>
+  </object>
+  <object id="18" x="2084.72" y="332.829">
+   <ellipse/>
+  </object>
+  <object id="19" x="2214.83" y="263.238">
+   <ellipse/>
+  </object>
+  <object id="20" x="2341.91" y="263.238">
+   <ellipse/>
+  </object>
+  <object id="21" x="2465.96" y="278.366">
+   <ellipse/>
+  </object>
+  <object id="22" x="2532.53" y="350.983">
+   <ellipse/>
+  </object>
+ </objectgroup>
  <objectgroup name="sprites"/>
 </map>
