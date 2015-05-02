@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="10" tilewidth="60" tileheight="60" nextobjectid="34">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="10" tilewidth="60" tileheight="60" nextobjectid="40">
  <tileset firstgid="1" name="box" tilewidth="60" tileheight="60">
   <image source="../img/box.png" width="60" height="60"/>
+  <terraintypes>
+   <terrain name="Nouveau terrain" tile="-1"/>
+  </terraintypes>
  </tileset>
  <tileset firstgid="2" name="ground" tilewidth="60" tileheight="60">
   <image source="../img/ground.png" width="60" height="60"/>
  </tileset>
+ <tileset firstgid="3" name="flag" tilewidth="28" tileheight="46">
+  <image source="../img/flag.png" width="28" height="46"/>
+ </tileset>
  <layer name="blocs" width="50" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjZBgegHGgHUAkYCQCDzZAjJsHiz/IdetA+oMWbqanP+jlfmr6g95uHvXH4HX/cMIAlIYA+w==
+   eJxjZBjagBlKMw6oK4gHjETgwQaIcfNg8Qe5bh1If9DCzfT0B73cT01/0NvNo/4YvO4fThgAqbYA/g==
   </data>
  </layer>
  <objectgroup name="golds">
@@ -78,7 +84,10 @@
  </objectgroup>
  <objectgroup name="sprites"/>
  <objectgroup name="mobs">
-  <object id="32" x="2570.65" y="13.587"/>
-  <object id="33" x="2038.04" y="133.152"/>
+  <object id="35" x="2682.07" y="19.0217"/>
+ </objectgroup>
+ <objectgroup name="items">
+  <object id="36" name="start" x="103.261" y="190.217" width="73.3696" height="119.565"/>
+  <object id="38" name="end" x="2880.65" y="-100.588" width="29.1875" height="159.815" rotation="0.168583"/>
  </objectgroup>
 </map>

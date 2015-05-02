@@ -8,6 +8,10 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
@@ -43,11 +47,13 @@ public class PlayView implements IView {
     private OrthographicCamera gameCamera;
     private ArrayList<Gold> golds = new ArrayList<Gold>();
     private ArrayList<Mob> mobs = new ArrayList<Mob>();
+    private float startx = 100;
+    private float starty = 200;
+    private int currentScore = 0;
 
     public PlayView() {
         this.initCamera();
         this.initLevel();
-        this.initPlayer();
         this.initGui();
         this.initCollision();
     }
@@ -66,15 +72,14 @@ public class PlayView implements IView {
 
     private void initPlayer() {
         player = new Player();
-        player.createSprite(100, 500);
+        player.createSprite(startx, starty);
+        player.createBody(world);
         mapRenderer.addSprite(player.getSprite());
     }
 
     private void initCollision() {
         world = new World(new Vector2(0, -25f), true);
         world.setContactListener(new SozoContactListener(this));
-
-        player.createBody(world);
 
         TiledMapTileLayer blocsLayer = (TiledMapTileLayer)tiledMap.getLayers().get("blocs");
         for (int x = 0; x < blocsLayer.getWidth(); x++)
@@ -105,6 +110,35 @@ public class PlayView implements IView {
             mob.createBody(world);
             mobs.add(mob);
         }
+
+        MapLayer itemsLayer = tiledMap.getLayers().get("items");
+        for (MapObject itemMapObject : itemsLayer.getObjects()) {
+            if (itemMapObject.getName() == null)
+                continue;
+            if (itemMapObject.getName().equals("start")) {
+                startx = (Float)itemMapObject.getProperties().get("x");
+                starty = (Float)itemMapObject.getProperties().get("y");
+            }
+            if (itemMapObject.getName().equals("end")) {
+                Float x = (Float) itemMapObject.getProperties().get("x");
+                Float y = (Float) itemMapObject.getProperties().get("y");
+                Float width = (Float) itemMapObject.getProperties().get("width");
+                Float height = (Float) itemMapObject.getProperties().get("height");
+                BodyDef bodyDef = new BodyDef();
+                bodyDef.type = BodyDef.BodyType.StaticBody;
+                bodyDef.position.set(x / PlayView.PPM, y / PlayView.PPM);
+                PolygonShape polygonShape = new PolygonShape();
+                polygonShape.setAsBox(width / PlayView.PPM, height / PlayView.PPM);
+                FixtureDef fixtureDef = new FixtureDef();
+                fixtureDef.shape = polygonShape;
+                fixtureDef.isSensor = true;
+                Body body = world.createBody(bodyDef);
+                body.createFixture(fixtureDef).setUserData("end");
+                polygonShape.dispose();
+            }
+        }
+
+        initPlayer();
     }
 
     private void initGui() {
@@ -182,7 +216,18 @@ public class PlayView implements IView {
             //world.destroyBody(gold.getBody());
             mapRenderer.removeSprite(gold.getSprite());
             golds.remove(gold);
+            currentScore += 8;
             ResourceManager.getInstance().getSound("valid").play();
         }
+    }
+
+    public void endGame() {
+        GameData.getInstance().setScore(currentScore);
+        GameMaster.getInstance().setState(GameMaster.e_state.SCORE_VIEW, true);
+    }
+
+    @Override
+    public void reload() {
+        Gdx.input.setInputProcessor(stage);
     }
 }

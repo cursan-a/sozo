@@ -5,4 +5,5 @@ package com.cursan.anthony.game.sozo.view;
  */
 public interface IView {
     public abstract void render(float timeElapsed);
+    public abstract void reload();
 }

@@ -6,6 +6,7 @@ package com.cursan.anthony.game.sozo.tools;
 public class GameData {
     private static GameData instance = new GameData();
     private int level = 0;
+    private int score = 0;
     private GameData() {
 
     }
@@ -20,5 +21,17 @@ public class GameData {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public static void setInstance(GameData instance) {
+        GameData.instance = instance;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 }

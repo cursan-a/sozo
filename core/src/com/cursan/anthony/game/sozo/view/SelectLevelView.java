@@ -20,6 +20,7 @@ public class SelectLevelView implements IView {
     private TextButton level1;
     private TextButton level2;
     private TextButton level3;
+    private TextButton ret;
     private Sprite bg;
 
     public SelectLevelView() {
@@ -27,16 +28,16 @@ public class SelectLevelView implements IView {
         bg = new Sprite(ResourceManager.getInstance().getTexture("bg"));
         Skin skin = new Skin();
         skin.addRegions(ResourceManager.getInstance().getTextureAtlas("menuButton"));
-        TextButton.TextButtonStyle styleLeft = new TextButton.TextButtonStyle();
-        styleLeft.up = skin.getDrawable("buttonUp");
-        styleLeft.down = skin.getDrawable("buttonDown");
-        styleLeft.font = new BitmapFont();
+        TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
+        style.up = skin.getDrawable("buttonUp");
+        style.down = skin.getDrawable("buttonDown");
+        style.font = new BitmapFont();
 
-        this.level1 = new TextButton("1", styleLeft);
+        this.level1 = new TextButton("1", style);
         this.level1.setPosition(85, 100);
         this.level1.setWidth(100);
         this.level1.setHeight(100);
-        this.level1.setStyle(styleLeft);
+        this.level1.setStyle(style);
         this.level1.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -47,11 +48,11 @@ public class SelectLevelView implements IView {
             }
         });
 
-        this.level2 = new TextButton("2", styleLeft);
+        this.level2 = new TextButton("2", style);
         this.level2.setPosition(270, 100);
         this.level2.setWidth(100);
         this.level2.setHeight(100);
-        this.level2.setStyle(styleLeft);
+        this.level2.setStyle(style);
         this.level2.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -62,11 +63,11 @@ public class SelectLevelView implements IView {
             }
         });
 
-        this.level3 = new TextButton("3", styleLeft);
+        this.level3 = new TextButton("3", style);
         this.level3.setPosition(440, 100);
         this.level3.setWidth(100);
         this.level3.setHeight(100);
-        this.level3.setStyle(styleLeft);
+        this.level3.setStyle(style);
         this.level3.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -76,9 +77,25 @@ public class SelectLevelView implements IView {
                 GameMaster.getInstance().setState(GameMaster.e_state.PLAY);
             }
         });
+
+        this.ret = new TextButton("<", style);
+        this.ret.setPosition(25, 5);//GameMaster.GAME_HEIGHT - 30);
+        this.ret.setWidth(50);
+        this.ret.setHeight(50);
+        this.ret.setStyle(style);
+        this.ret.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                ResourceManager.getInstance().getSound("valid").play();
+                GameMaster.getInstance().setState(GameMaster.e_state.MENU);
+            }
+        });
+
         stage.addActor(this.level1);
         stage.addActor(this.level2);
         stage.addActor(this.level3);
+        stage.addActor(this.ret);
         Gdx.input.setInputProcessor(stage);
     }
 
@@ -90,4 +107,11 @@ public class SelectLevelView implements IView {
         GameMaster.getInstance().getSpriteBatch().end();
         stage.draw();
     }
+
+    @Override
+    public void reload() {
+        Gdx.input.setInputProcessor(stage);
+    }
+
+
 }

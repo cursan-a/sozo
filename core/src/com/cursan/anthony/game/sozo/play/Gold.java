@@ -31,7 +31,7 @@ public class Gold {
         fixtureDef.shape = circleShape ;
         fixtureDef.isSensor = true;
         body.createFixture(fixtureDef).setUserData(this);
-        circleShape .dispose();
+        circleShape.dispose();
     }
 
     public GoldSprite getSprite() {

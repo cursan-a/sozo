@@ -16,6 +16,7 @@ import com.cursan.anthony.game.sozo.tools.ResourceManager;
 import com.cursan.anthony.game.sozo.view.IView;
 import com.cursan.anthony.game.sozo.view.MenuView;
 import com.cursan.anthony.game.sozo.view.PlayView;
+import com.cursan.anthony.game.sozo.view.ScoreView;
 import com.cursan.anthony.game.sozo.view.SelectLevelView;
 import com.cursan.anthony.game.sozo.view.StartView;
 
@@ -39,11 +40,13 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
     private MenuView menuView = null;
     private SelectLevelView selectLevelView = null;
     private PlayView playView = null;
+    private ScoreView scoreView = null;
     public enum e_state {
         START,
         MENU,
         SELECT_LEVEL,
-        PLAY
+        PLAY,
+        SCORE_VIEW
     };
     private e_state state;
 
@@ -119,7 +122,19 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
                     this.playView = new PlayView();
                 this.currentView = this.playView;
                 break;
+            case SCORE_VIEW:
+                if (this.scoreView == null)
+                    this.scoreView = new ScoreView();
+                this.currentView = this.scoreView;
+                break;
         }
+        currentView.reload();
+    }
+
+    public void setState(e_state state, boolean delete) {
+        if (delete)
+            this.playView = null;
+        setState(state);
     }
 
     @Override

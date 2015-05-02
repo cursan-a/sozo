@@ -21,25 +21,50 @@ public class SozoContactListener implements ContactListener {
         Fixture fa = contact.getFixtureA();
         Fixture fb = contact.getFixtureB();
 
-        if(fa == null || fb == null)
+        if(fa == null || fb == null || fa.getUserData() == null || fb.getUserData() == null)
             return;
 
-        if (fa.getUserData() != null && fa.getUserData().equals("foot") &&
-            fb.getUserData() != null && fb.getUserData().equals("bloc")) {
+        if ((fa.getUserData().equals("foot") && fb.getUserData().equals("bloc")) ||
+            (fa.getUserData().equals("bloc") && fb.getUserData().equals("foot"))) {
             pv.getPlayer().isOnTheGround(true);
+            return;
         }
 
-        if (fb.getUserData() != null && fb.getUserData().equals("foot") &&
-            fa.getUserData() != null && fa.getUserData().equals("bloc")) {
-            pv.getPlayer().isOnTheGround(true);
+        if (fa.getUserData().equals("foot") && fb.getUserData().getClass().equals(Mob.class)) {
+            //kill enemy
+            System.out.println("Enemy dead !");
+            return;
+        }
+        if (fa.getUserData().getClass().equals(Mob.class) && fb.getUserData().equals("foot")) {
+            //kill enemy
+            System.out.println("Enemy dead !");
+            return;
         }
 
-        if (fa.getUserData() != null && fa.getUserData().getClass().equals(Gold.class)) {
+        if (fa.getUserData().equals("body") && fb.getUserData().getClass().equals(Mob.class)) {
+            //kill player
+            System.out.println("Player dead !");
+            return;
+        }
+        if (fa.getUserData().getClass().equals(Mob.class) && fb.getUserData().equals("body")) {
+            //kill player
+            System.out.println("Player dead !");
+            return;
+        }
+
+        if (fa.getUserData().getClass().equals(Gold.class) && fb.getUserData().equals("body")) {
             pv.playerCatchGold((Gold)fa.getUserData());
+            return;
+        }
+        if (fa.getUserData().equals("body") && fb.getUserData().getClass().equals(Gold.class)) {
+            pv.playerCatchGold((Gold)fb.getUserData());
+            return;
         }
 
-        if (fb.getUserData() != null && fb.getUserData().getClass().equals(Gold.class)) {
-            pv.playerCatchGold((Gold)fb.getUserData());
+        if ((fa.getUserData().equals("body") && fb.getUserData().equals("end")) ||
+            (fa.getUserData().equals("end") && fb.getUserData().equals("body"))){
+            pv.endGame();
+            return;
         }
     }
 

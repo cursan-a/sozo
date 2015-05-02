@@ -50,4 +50,9 @@ public class StartView implements IView {
         GameMaster.getInstance().synchronizeCamera();
         stage.draw();
     }
+
+    @Override
+    public void reload() {
+        Gdx.input.setInputProcessor(stage);
+    }
 }

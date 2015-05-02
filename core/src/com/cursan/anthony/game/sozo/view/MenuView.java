@@ -53,4 +53,9 @@ public class MenuView implements IView {
         GameMaster.getInstance().getSpriteBatch().end();
         stage.draw();
     }
+
+    @Override
+    public void reload() {
+        Gdx.input.setInputProcessor(stage);
+    }
 }
