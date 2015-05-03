@@ -1,41 +1,41 @@
 
 mob.png
-size: 128,32
+size: 256,64
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 0000
   rotate: false
   xy: 2, 2
-  size: 19, 20
-  orig: 19, 20
+  size: 30, 32
+  orig: 30, 32
   offset: 0, 0
   index: -1
 0001
   rotate: false
-  xy: 23, 2
-  size: 19, 20
-  orig: 19, 20
+  xy: 34, 2
+  size: 30, 32
+  orig: 30, 32
   offset: 0, 0
   index: -1
 0002
   rotate: false
-  xy: 44, 2
-  size: 19, 20
-  orig: 19, 20
+  xy: 66, 2
+  size: 30, 32
+  orig: 30, 32
   offset: 0, 0
   index: -1
 0003
   rotate: false
-  xy: 65, 2
-  size: 19, 20
-  orig: 19, 20
+  xy: 98, 2
+  size: 30, 32
+  orig: 30, 32
   offset: 0, 0
   index: -1
 0004
   rotate: false
-  xy: 86, 2
-  size: 19, 20
-  orig: 19, 20
+  xy: 130, 2
+  size: 30, 32
+  orig: 30, 32
   offset: 0, 0
   index: -1

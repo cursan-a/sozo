@@ -29,7 +29,7 @@ public class Mob {
     public void createSprite(float x, float y) {
         this.sprite = new MobSprite(this);
         this.sprite.setX(x - CONFIG.MOB_WIDTH / 2.0f);
-        this.sprite.setY(y - CONFIG.MOB_HEIGHT / 2.0f);
+        this.sprite.setY(y - CONFIG.MOB_HEIGHT / 2.0f - 3.0f);
     }
 
     public void createBody(World world) {
@@ -97,6 +97,6 @@ public class Mob {
         } else
             velocity.x = 0f;
         body.setLinearVelocity(velocity);
-        sprite.setPosition(body.getPosition().x * CONFIG.PPM - CONFIG.MOB_WIDTH / 2.0f, body.getPosition().y * CONFIG.PPM - CONFIG.MOB_HEIGHT / 2.0f);
+        sprite.setPosition(body.getPosition().x * CONFIG.PPM - CONFIG.MOB_WIDTH / 2.0f, body.getPosition().y * CONFIG.PPM - CONFIG.MOB_HEIGHT / 2.0f - 3.0f);
     }
 }

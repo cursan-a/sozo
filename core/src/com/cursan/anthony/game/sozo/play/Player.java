@@ -37,7 +37,7 @@ public class Player {
 
     public void createBody(World world) {
         float x = (sprite.getX() + CONFIG.PLAYER_WIDTH / 2) / CONFIG.PPM;
-        float y = (sprite.getY() + CONFIG.PLAYER_HEIGHT / 2) / CONFIG.PPM;
+        float y = (sprite.getY() + CONFIG.PLAYER_HEIGHT / 2 - 3.0f) / CONFIG.PPM;
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -81,7 +81,7 @@ public class Player {
         } else
             velocity.x = 0f;
         body.setLinearVelocity(velocity);
-        sprite.setPosition(body.getPosition().x * CONFIG.PPM - CONFIG.PLAYER_WIDTH / 2.0f, body.getPosition().y * CONFIG.PPM - CONFIG.PLAYER_HEIGHT / 2.0f);
+        sprite.setPosition(body.getPosition().x * CONFIG.PPM - CONFIG.PLAYER_WIDTH / 2.0f, body.getPosition().y * CONFIG.PPM - CONFIG.PLAYER_HEIGHT / 2.0f - 3.0f);
     }
 
     public PlayerSprite getSprite() {

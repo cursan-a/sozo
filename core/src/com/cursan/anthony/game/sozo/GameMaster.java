@@ -3,7 +3,6 @@ package com.cursan.anthony.game.sozo;
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -63,7 +62,6 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
     @Override
     public void create() {
         this.initCamera();
-        //this.initControl();
         this.loadResources();
         this.spriteBatch = new SpriteBatch();
         this.setState(e_state.START);
@@ -79,6 +77,7 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
 
     private void loadResources() {
         ResourceManager.getInstance().loadTexture("bg", "img/bg.png");
+        ResourceManager.getInstance().loadTexture("gamebg", "img/gamebg.png");
 
         ResourceManager.getInstance().loadMusic("intro", "music/intro.mp3");
 
@@ -104,14 +103,6 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
         ResourceManager.getInstance().loadTextureAtlas("gold", "atlas/gold.atlas");
         ResourceManager.getInstance().loadTextureAtlas("mob", "atlas/mob.atlas");
         ResourceManager.getInstance().loadTextureAtlas("mario","atlas/mario.atlas");
-    }
-
-    private void initControl() {
-        InputMultiplexer im = new InputMultiplexer();
-        GestureDetector gd = new GestureDetector(this);
-        im.addProcessor(gd);
-        im.addProcessor(this);
-        Gdx.input.setInputProcessor(im);
     }
 
     public void setState(e_state state) {

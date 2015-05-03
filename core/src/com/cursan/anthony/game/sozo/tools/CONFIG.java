@@ -12,6 +12,6 @@ public abstract class CONFIG {
     public static float GOLD_HEIGHT = 32.0f;
     public final static float PLAYER_WIDTH = 25;
     public final static float PLAYER_HEIGHT = 41;
-    public static float MOB_WIDTH = 19.0f;
-    public static float MOB_HEIGHT = 20.0f;
+    public static float MOB_WIDTH = 30.0f;
+    public static float MOB_HEIGHT = 32.0f;
 }

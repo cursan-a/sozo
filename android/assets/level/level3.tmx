@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="120" height="20" tilewidth="32" tileheight="32" nextobjectid="141">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="120" height="20" tilewidth="32" tileheight="32" nextobjectid="142">
  <tileset firstgid="1" name="landscape" tilewidth="32" tileheight="32">
   <image source="../img/landscape.png" width="384" height="320"/>
  </tileset>
@@ -110,8 +110,8 @@
   <object id="128" x="2912" y="384"/>
  </objectgroup>
  <objectgroup name="items">
-  <object id="90" name="end" x="3552" y="416" width="64" height="96"/>
-  <object id="91" name="start" x="128" y="480" width="64" height="96"/>
+  <object id="90" name="end" x="3552" y="416" width="32" height="96"/>
+  <object id="141" name="start" x="128" y="512" width="32" height="64"/>
  </objectgroup>
  <objectgroup name="sprites"/>
  <objectgroup name="collisions">

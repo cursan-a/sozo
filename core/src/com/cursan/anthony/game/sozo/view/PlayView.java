@@ -141,15 +141,15 @@ public class PlayView implements IView {
                 starty = (Float)itemMapObject.getProperties().get("y");
             }
             if (itemMapObject.getName().equals("end")) {
-                Float x = (Float) itemMapObject.getProperties().get("x");
-                Float y = (Float) itemMapObject.getProperties().get("y");
-                Float width = (Float) itemMapObject.getProperties().get("width");
-                Float height = (Float) itemMapObject.getProperties().get("height");
+                Float x = (Float) itemMapObject.getProperties().get("x") / CONFIG.PPM;
+                Float y = (Float) itemMapObject.getProperties().get("y") / CONFIG.PPM;
+                Float width = (Float) itemMapObject.getProperties().get("width") / 2.0f / CONFIG.PPM;
+                Float height = (Float) itemMapObject.getProperties().get("height") / 2.0f / CONFIG.PPM;
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.StaticBody;
-                bodyDef.position.set(x / CONFIG.PPM, y / CONFIG.PPM);
+                bodyDef.position.set(x + width, y + height);
                 PolygonShape polygonShape = new PolygonShape();
-                polygonShape.setAsBox(width / CONFIG.PPM / 2.0f, height / CONFIG.PPM / 2.0f);
+                polygonShape.setAsBox(width, height);
                 FixtureDef fixtureDef = new FixtureDef();
                 fixtureDef.shape = polygonShape;
                 fixtureDef.isSensor = true;
@@ -225,6 +225,11 @@ public class PlayView implements IView {
         gameCamera.position.set(player.getSprite().getX(), player.getSprite().getY() + 120, 0);
         gameCamera.update();
         mapRenderer.setView(gameCamera);
+        GameMaster.getInstance().getSpriteBatch().begin();
+        GameMaster.getInstance().getSpriteBatch().draw(ResourceManager.getInstance().getTexture("gamebg"),
+                gameCamera.position.x - CONFIG.GAME_WIDTH / 2,
+                gameCamera.position.y - CONFIG.GAME_HEIGHT / 2);
+        GameMaster.getInstance().getSpriteBatch().end();
         mapRenderer.render(timeElapsed);
         stage.draw();
     }
