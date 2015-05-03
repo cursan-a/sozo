@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="120" height="20" tilewidth="32" tileheight="32" nextobjectid="129">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="120" height="20" tilewidth="32" tileheight="32" nextobjectid="141">
  <tileset firstgid="1" name="landscape" tilewidth="32" tileheight="32">
   <image source="../img/landscape.png" width="384" height="320"/>
  </tileset>
@@ -114,4 +114,16 @@
   <object id="91" name="start" x="128" y="480" width="64" height="96"/>
  </objectgroup>
  <objectgroup name="sprites"/>
+ <objectgroup name="collisions">
+  <object id="130" x="0" y="192" width="64" height="384"/>
+  <object id="131" x="0" y="576" width="512" height="64"/>
+  <object id="133" x="512" y="512" width="1152" height="128"/>
+  <object id="134" x="1664" y="416" width="512" height="224"/>
+  <object id="135" x="1792" y="288" width="288" height="32"/>
+  <object id="136" x="2272" y="416" width="448" height="224"/>
+  <object id="137" x="2720" y="576" width="160" height="64"/>
+  <object id="138" x="2880" y="480" width="576" height="160"/>
+  <object id="139" x="3456" y="512" width="320" height="128"/>
+  <object id="140" x="3776" y="192" width="64" height="448"/>
+ </objectgroup>
 </map>

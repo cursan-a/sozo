@@ -18,19 +18,17 @@ public class MobSprite extends ASpriteAnimated {
 
     public MobSprite(Mob mob) {
         this.mob = mob;
-        setBounds(0, 0, 60, 60);
+        setBounds(0, 0, Mob.MOB_WIDTH, Mob.MOB_HEIGHT);
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlas/mob.atlas"));
         rightNone = atlas.findRegion("0000");
         leftNone = atlas.findRegion("0000");
         float speed = 1 / 7f;
         leftAnimation = new Animation(speed,
                 atlas.findRegion("0001"),
-                atlas.findRegion("0002"),
-                atlas.findRegion("0003"));
+                atlas.findRegion("0002"));
         rightAnimation = new Animation(speed,
                 atlas.findRegion("0004"),
-                atlas.findRegion("0005"),
-                atlas.findRegion("0006"));
+                atlas.findRegion("0005"));
     }
 
 

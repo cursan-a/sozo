@@ -33,35 +33,36 @@ public class Player {
 
     public void createSprite(float x, float y) {
         sprite = new PlayerSprite(this);
-        sprite.setX(x);
-        sprite.setY(y);
+        sprite.setX(x - PLAYER_WIDTH / 2);
+        sprite.setY(y - PLAYER_HEIGHT / 2);
     }
 
     public void createBody(World world) {
+        float x = (sprite.getX() + PLAYER_WIDTH / 2) / PlayView.PPM;
+        float y = (sprite.getY() + PLAYER_HEIGHT / 2) / PlayView.PPM;
+
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(sprite.getX() / PlayView.PPM, sprite.getY() / PlayView.PPM);
+        bodyDef.position.set(x, y);
         bodyDef.fixedRotation = true;
         body = world.createBody(bodyDef);
         body.setUserData(this);
 
         PolygonShape shape = new PolygonShape();
 
-        shape.setAsBox(Player.PLAYER_WIDTH / PlayView.PPM / 2, Player.PLAYER_HEIGHT / PlayView.PPM / 2);
+        shape.setAsBox(Player.PLAYER_WIDTH / 2.0f / PlayView.PPM, Player.PLAYER_HEIGHT / 2.0f / PlayView.PPM);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 0.025f;
-        fixtureDef.friction = 0f;
         body.createFixture(fixtureDef).setUserData("body");
         shape.dispose();
 
         shape = new PolygonShape();
-        shape.setAsBox((Player.PLAYER_WIDTH / 2 - 6) / PlayView.PPM,
-                10 / PlayView.PPM,
-                new Vector2(1 / PlayView.PPM, -(PLAYER_WIDTH - 10) / PlayView.PPM), 0);
+        shape.setAsBox(Player.PLAYER_WIDTH / 2.0f / PlayView.PPM,
+                5.0f / PlayView.PPM,
+                new Vector2(0.0f, -(PLAYER_WIDTH + 5.0f) / PlayView.PPM), 0.0f);
         fixtureDef.shape = shape;
-        fixtureDef.density = 0.001f;
-        fixtureDef.friction = 0f;
+        fixtureDef.density = 0f;
         fixtureDef.isSensor = true;
         body.createFixture(fixtureDef).setUserData("foot");
         shape.dispose();
@@ -82,7 +83,7 @@ public class Player {
         } else
             velocity.x = 0f;
         body.setLinearVelocity(velocity);
-        sprite.setPosition(body.getPosition().x * PlayView.PPM, body.getPosition().y * PlayView.PPM);
+        sprite.setPosition(body.getPosition().x * PlayView.PPM - PLAYER_WIDTH / 2.0f, body.getPosition().y * PlayView.PPM - PLAYER_HEIGHT / 2.0f);
     }
 
     public PlayerSprite getSprite() {

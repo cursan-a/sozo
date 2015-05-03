@@ -15,7 +15,7 @@ public class GoldSprite extends ASpriteAnimated {
 
     public GoldSprite() {
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlas/gold.atlas"));
-        setBounds(0, 0, 32, 32);
+        setBounds(0, 0, Gold.GOLD_WIDTH, Gold.GOLD_HEIGHT);
         animation = new Animation(1 / 7f, atlas.getRegions());
     }
 

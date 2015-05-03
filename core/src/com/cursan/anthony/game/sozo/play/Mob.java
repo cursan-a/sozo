@@ -12,6 +12,8 @@ import com.cursan.anthony.game.sozo.view.PlayView;
  * Created by cursan_a on 02/05/15.
  */
 public class Mob {
+    public static float MOB_WIDTH = 32.0f;
+    public static float MOB_HEIGHT = 32.0f;
     public enum e_direction {
         RIGHT,
         LEFT
@@ -28,21 +30,23 @@ public class Mob {
 
     public void createSprite(float x, float y) {
         this.sprite = new MobSprite(this);
-        this.sprite.setX(x);
-        this.sprite.setY(y);
+        this.sprite.setX(x - MOB_WIDTH / 2.0f);
+        this.sprite.setY(y - MOB_HEIGHT / 2.0f);
     }
 
     public void createBody(World world) {
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        bodyDef.position.set(sprite.getX() / PlayView.PPM, sprite.getY() / PlayView.PPM);
+        float x = (sprite.getX() + MOB_WIDTH / 2.0f) / PlayView.PPM;
+        float y = (sprite.getY() + MOB_HEIGHT / 2.0f) / PlayView.PPM;
+        bodyDef.position.set(x, y);
         bodyDef.fixedRotation = true;
         body = world.createBody(bodyDef);
         body.setUserData(this);
 
         PolygonShape shape = new PolygonShape();
 
-        shape.setAsBox(30 / PlayView.PPM, 30 / PlayView.PPM);
+        shape.setAsBox(MOB_WIDTH / 2.0f / PlayView.PPM, MOB_HEIGHT / 2.0f / PlayView.PPM);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 0.025f;
@@ -85,15 +89,15 @@ public class Mob {
         if (state == e_state.RUN) {
             switch (direction) {
                 case RIGHT:
-                    velocity.x = 5f;
+                    velocity.x = 1f;
                     break;
                 case LEFT:
-                    velocity.x = -5f;
+                    velocity.x = -1f;
                     break;
             }
         } else
             velocity.x = 0f;
         body.setLinearVelocity(velocity);
-        sprite.setPosition(body.getPosition().x * PlayView.PPM, body.getPosition().y * PlayView.PPM);
+        sprite.setPosition(body.getPosition().x * PlayView.PPM - MOB_WIDTH / 2.0f, body.getPosition().y * PlayView.PPM - MOB_HEIGHT / 2.0f);
     }
 }

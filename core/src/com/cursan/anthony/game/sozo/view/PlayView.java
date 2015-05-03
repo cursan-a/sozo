@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.maps.MapLayer;
 import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -20,7 +19,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.cursan.anthony.game.sozo.GameMaster;
-import com.cursan.anthony.game.sozo.play.Bloc;
 import com.cursan.anthony.game.sozo.play.Gold;
 import com.cursan.anthony.game.sozo.play.Mob;
 import com.cursan.anthony.game.sozo.play.Player;
@@ -35,8 +33,8 @@ import java.util.ArrayList;
  * Created by cursan_a on 30/04/15.
  */
 public class PlayView implements IView {
-    public final static float PPM = 60;
-    public final static float TILED_SIZE = 32;
+    public final static float PPM = 60.0f;
+    public final static float TILED_SIZE = 32.0f;
 
     private TiledMap tiledMap;
     private SozoMapRenderer mapRenderer;
@@ -49,8 +47,8 @@ public class PlayView implements IView {
     private SozoContactListener contactListener;
     private ArrayList<Gold> golds = new ArrayList<Gold>();
     private ArrayList<Mob> mobs = new ArrayList<Mob>();
-    private float startx = 100;
-    private float starty = 200;
+    private float startx = 100.0f;
+    private float starty = 200.0f;
     private int currentScore = 0;
 
     public PlayView() {
@@ -84,7 +82,8 @@ public class PlayView implements IView {
         contactListener = new SozoContactListener();
         world.setContactListener(contactListener);
 
-        TiledMapTileLayer blocsLayer = (TiledMapTileLayer)tiledMap.getLayers().get("blocs");
+        //Old collisions style
+        /*TiledMapTileLayer blocsLayer = (TiledMapTileLayer)tiledMap.getLayers().get("blocs");
         for (int x = 0; x < blocsLayer.getWidth(); x++)
             for (int y = 0; y < blocsLayer.getHeight(); y++) {
                 TiledMapTileLayer.Cell cell = blocsLayer.getCell(x, y);
@@ -92,13 +91,33 @@ public class PlayView implements IView {
                 if (cell.getTile() == null) continue;
                 Bloc bloc = new Bloc();
                 bloc.createBody(world, x, y);
-            }
+            }*/
+
+        MapLayer collisionsLayer = tiledMap.getLayers().get("collisions");
+        for (MapObject collisionObject : collisionsLayer.getObjects()) {
+            Float x = (Float) collisionObject.getProperties().get("x") / PlayView.PPM;
+            Float y = (Float) collisionObject.getProperties().get("y") / PlayView.PPM;
+            Float width = (Float) collisionObject.getProperties().get("width") / 2.0f / PlayView.PPM;
+            Float height = (Float) collisionObject.getProperties().get("height") / 2.0f / PlayView.PPM;
+            BodyDef bodyDef = new BodyDef();
+            bodyDef.type = BodyDef.BodyType.StaticBody;
+            bodyDef.position.set(x + width, y + height);
+            PolygonShape polygonShape = new PolygonShape();
+            polygonShape.setAsBox(width, height);
+            FixtureDef fixtureDef = new FixtureDef();
+            fixtureDef.shape = polygonShape;
+            Body body = world.createBody(bodyDef);
+            body.createFixture(fixtureDef).setUserData("bloc");
+            polygonShape.dispose();
+        }
 
         MapLayer goldsLayer = tiledMap.getLayers().get("golds");
         for (MapObject goldMapObject : goldsLayer.getObjects()) {
+            Float x = (Float) goldMapObject.getProperties().get("x");
+            Float y = (Float) goldMapObject.getProperties().get("y");
+            //System.out.println("Gold (" + x + "; " + y + ")");
             Gold gold = new Gold();
-            gold.createSprite((Float) goldMapObject.getProperties().get("x"),
-                              (Float) goldMapObject.getProperties().get("y"));
+            gold.createSprite(x, y);
             mapRenderer.addSprite(gold.getSprite());
             gold.createBody(world);
             golds.add(gold);
@@ -131,7 +150,7 @@ public class PlayView implements IView {
                 bodyDef.type = BodyDef.BodyType.StaticBody;
                 bodyDef.position.set(x / PlayView.PPM, y / PlayView.PPM);
                 PolygonShape polygonShape = new PolygonShape();
-                polygonShape.setAsBox(width / PlayView.PPM, height / PlayView.PPM);
+                polygonShape.setAsBox(width / PlayView.PPM / 2.0f, height / PlayView.PPM / 2.0f);
                 FixtureDef fixtureDef = new FixtureDef();
                 fixtureDef.shape = polygonShape;
                 fixtureDef.isSensor = true;
