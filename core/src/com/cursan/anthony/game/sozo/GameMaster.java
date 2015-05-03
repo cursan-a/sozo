@@ -81,14 +81,29 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
 
     private void loadResources() {
         ResourceManager.getInstance().loadTexture("bg", "img/bg.png");
+
         ResourceManager.getInstance().loadMusic("intro", "music/intro.mp3");
-        ResourceManager.getInstance().loadSound("valid", "sound/valid.wav");
+
+        ResourceManager.getInstance().loadSound("mario_thank_you", "sound/mario_thank_you.wav");
+        ResourceManager.getInstance().loadSound("mario_coin", "sound/mario_coin.wav");
+        ResourceManager.getInstance().loadSound("mario_falling", "sound/mario_falling.wav");
+        ResourceManager.getInstance().loadSound("mario_game_over", "sound/mario_game_over.wav");
+        ResourceManager.getInstance().loadSound("mario_win", "sound/mario_win.wav");
+        ResourceManager.getInstance().loadSound("mario_paf", "sound/mario_paf.wav");
+        ResourceManager.getInstance().loadSound("mario_jump_1", "sound/mario_jump_1.wav");
+        ResourceManager.getInstance().loadSound("mario_jump_2", "sound/mario_jump_2.wav");
+        ResourceManager.getInstance().loadSound("mario_jump_3", "sound/mario_jump_3.wav");
+        ResourceManager.getInstance().loadSound("mario_jump_4", "sound/mario_jump_4.wav");
+        ResourceManager.getInstance().loadSound("mario_jump_5", "sound/mario_jump_5.wav");
+        ResourceManager.getInstance().loadSound("mario_mushroom", "sound/mario_mushroom.wav");
+
         ResourceManager.getInstance().loadTextureAtlas("startScreenBtn", "atlas/startScreenBtn.atlas");
         ResourceManager.getInstance().loadTextureAtlas("menuButton", "atlas/menuButton.atlas");
         ResourceManager.getInstance().loadTextureAtlas("button", "atlas/button.atlas");
         ResourceManager.getInstance().loadTextureAtlas("button2", "atlas/button2.atlas");
         ResourceManager.getInstance().loadTextureAtlas("gold", "atlas/gold.atlas");
         ResourceManager.getInstance().loadTextureAtlas("mob", "atlas/mob.atlas");
+        ResourceManager.getInstance().loadTextureAtlas("mario","atlas/mario.atlas");
     }
 
     private void initControl() {
@@ -176,7 +191,7 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
 
     @Override
     public void resume() {
-
+        currentView.reload();
     }
 
     @Override

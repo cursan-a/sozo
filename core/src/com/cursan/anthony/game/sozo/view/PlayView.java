@@ -36,6 +36,7 @@ import java.util.ArrayList;
  */
 public class PlayView implements IView {
     public final static float PPM = 60;
+    public final static float TILED_SIZE = 32;
 
     private TiledMap tiledMap;
     private SozoMapRenderer mapRenderer;
@@ -61,7 +62,7 @@ public class PlayView implements IView {
 
     private void initCamera() {
         this.gameCamera = new OrthographicCamera();
-        this.gameCamera.setToOrtho(false, 1920, 1080);//GameMaster.GAME_WIDTH, GameMaster.GAME_HEIGHT);
+        this.gameCamera.setToOrtho(false, GameMaster.GAME_WIDTH, GameMaster.GAME_HEIGHT);
         this.gameCamera.update();
     }
 
@@ -218,7 +219,7 @@ public class PlayView implements IView {
                 mapRenderer.removeSprite(mob.getSprite());
                 mobs.remove(mob);
                 currentScore += 35;
-                ResourceManager.getInstance().getSound("valid").play();
+                ResourceManager.getInstance().getSound("mario_paf").play();
                 if (mob.equals(playerSlewBy))
                     playerSlewBy = null;
             }
@@ -230,25 +231,32 @@ public class PlayView implements IView {
                 mapRenderer.removeSprite(gold.getSprite());
                 golds.remove(gold);
                 currentScore += 8;
-                ResourceManager.getInstance().getSound("valid").play();
+                ResourceManager.getInstance().getSound("mario_coin").play();
             }
         }
         contactListener.getGoldsCatched().clear();
         player.isOnTheGround(contactListener.isPlayerIsOnTheGround());
 
-        if (playerSlewBy != null || player.getSprite().getY() < -1000) {
+        if (playerSlewBy != null) {
+            ResourceManager.getInstance().getSound("mario_game_over").play();
             currentScore = 0;
             endGame();
         }
 
-        if (contactListener.isGameTerminated())
+        if (player.getSprite().getY() < -1000) {
+            ResourceManager.getInstance().getSound("mario_falling").play();
+            currentScore = 0;
             endGame();
-    }
+        }
 
+        if (contactListener.isGameTerminated()) {
+            ResourceManager.getInstance().getSound("mario_win").play();
+            endGame();
+        }
+    }
 
     public void endGame() {
         GameData.getInstance().setScore(currentScore);
-        System.out.println(currentScore + " | " + GameData.getInstance().getScore());
         GameMaster.getInstance().setState(GameMaster.e_state.SCORE_VIEW, true);
     }
 

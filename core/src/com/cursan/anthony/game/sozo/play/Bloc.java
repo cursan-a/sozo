@@ -11,6 +11,7 @@ import com.cursan.anthony.game.sozo.view.PlayView;
  * Created by cursan_a on 02/05/15.
  */
 public class Bloc {
+    public final static float TILED_SIZE = 32;
     private Body body;
     private float x;
     private float y;
@@ -20,9 +21,9 @@ public class Bloc {
         this.y = y;
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.StaticBody;
-        bodyDef.position.set(x * 60 / PlayView.PPM, y * 60 / PlayView.PPM);
+        bodyDef.position.set(x * TILED_SIZE / PlayView.PPM, y * TILED_SIZE / PlayView.PPM);
         PolygonShape polygonShape = new PolygonShape();
-        polygonShape.setAsBox(30 / PlayView.PPM, 30 / PlayView.PPM);
+        polygonShape.setAsBox(TILED_SIZE / PlayView.PPM / 2, TILED_SIZE / PlayView.PPM / 2);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = polygonShape;
         fixtureDef.density = 1f;

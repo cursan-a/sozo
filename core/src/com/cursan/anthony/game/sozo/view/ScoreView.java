@@ -36,7 +36,7 @@ public class ScoreView implements IView  {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                ResourceManager.getInstance().getSound("valid").play();
+                ResourceManager.getInstance().getSound("mario_mushroom").play();
                 GameMaster.getInstance().setState(GameMaster.e_state.SELECT_LEVEL, true);
             }
         });

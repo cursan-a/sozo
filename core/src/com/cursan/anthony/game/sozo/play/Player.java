@@ -6,12 +6,15 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.cursan.anthony.game.sozo.tools.ResourceManager;
 import com.cursan.anthony.game.sozo.view.PlayView;
 
 /**
  * Created by cursan_a on 02/05/15.
  */
 public class Player {
+    public final static float PLAYER_WIDTH = 25;
+    public final static float PLAYER_HEIGHT = 41;
     private PlayerSprite sprite;
     private Body body;
     public enum e_state {
@@ -30,7 +33,6 @@ public class Player {
 
     public void createSprite(float x, float y) {
         sprite = new PlayerSprite(this);
-        sprite.setScale(2, 2);
         sprite.setX(x);
         sprite.setY(y);
     }
@@ -45,7 +47,7 @@ public class Player {
 
         PolygonShape shape = new PolygonShape();
 
-        shape.setAsBox(60 / PlayView.PPM, 60 / PlayView.PPM);
+        shape.setAsBox(Player.PLAYER_WIDTH / PlayView.PPM / 2, Player.PLAYER_HEIGHT / PlayView.PPM / 2);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 0.025f;
@@ -53,7 +55,9 @@ public class Player {
         shape.dispose();
 
         shape = new PolygonShape();
-        shape.setAsBox(54 / PlayView.PPM, 2 / PlayView.PPM, new Vector2(3 / PlayView.PPM, -70 / PlayView.PPM), 0);
+        shape.setAsBox((Player.PLAYER_WIDTH / 2 - 6) / PlayView.PPM,
+                10 / PlayView.PPM,
+                new Vector2(1 / PlayView.PPM, -(PLAYER_WIDTH - 10) / PlayView.PPM), 0);
         fixtureDef.shape = shape;
         fixtureDef.density = 0.001f;
         fixtureDef.isSensor = true;
@@ -67,16 +71,16 @@ public class Player {
         if (state != e_state.NONE) {
             switch (direction) {
                 case RIGHT:
-                    velocity.x = 10f;
+                    velocity.x = 3f;
                     break;
                 case LEFT:
-                    velocity.x = -10f;
+                    velocity.x = -3f;
                     break;
             }
         } else
             velocity.x = 0f;
         body.setLinearVelocity(velocity);
-        sprite.setPosition(body.getPosition().x * PlayView.PPM - 30, body.getPosition().y * PlayView.PPM - 30);
+        sprite.setPosition(body.getPosition().x * PlayView.PPM, body.getPosition().y * PlayView.PPM);
     }
 
     public PlayerSprite getSprite() {
@@ -96,7 +100,8 @@ public class Player {
                 break;
             case RUN:
                 state = e_state.JUMP;
-                body.applyLinearImpulse(new Vector2(0f, 1.2f), body.getWorldCenter(), true);
+                body.applyLinearImpulse(new Vector2(0f, 0.08f), body.getWorldCenter(), true);
+                jumpSong();
                 break;
             case JUMP:
                 direction = e_direction.LEFT;
@@ -120,7 +125,8 @@ public class Player {
                 break;
             case RUN:
                 state = e_state.JUMP;
-                body.applyLinearImpulse(new Vector2(0f, 1.0f), body.getWorldCenter(), true);
+                body.applyLinearImpulse(new Vector2(0f, 0.08f), body.getWorldCenter(), true);
+                jumpSong();
                 break;
             case JUMP:
                 direction = e_direction.RIGHT;
@@ -155,5 +161,10 @@ public class Player {
     public void isOnTheGround(boolean isOnTheGround) {
         if (isOnTheGround)
             state = (leftDown || rightDown) ? e_state.RUN : e_state.NONE;
+    }
+
+    private void jumpSong() {
+        int song = (int)(Math.random() * 5.0) + 1;
+        ResourceManager.getInstance().getSound("mario_jump_" + song).play();
     }
 }

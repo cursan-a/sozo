@@ -1,10 +1,10 @@
 package com.cursan.anthony.game.sozo.play;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cursan.anthony.game.sozo.tools.ASpriteAnimated;
+import com.cursan.anthony.game.sozo.tools.ResourceManager;
 
 /**
  * Created by cursan_a on 26/04/15.
@@ -22,9 +22,23 @@ public class PlayerSprite extends ASpriteAnimated {
     public PlayerSprite(Player player) {
         super();
         this.player = player;
-        TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlas/pikachu.atlas"));
-        setBounds(0, 0, 60, 60);
+        TextureAtlas atlas = ResourceManager.getInstance().getTextureAtlas("mario");
+        setBounds(0, 0, Player.PLAYER_WIDTH, Player.PLAYER_HEIGHT);
         rightNone = atlas.findRegion("0000");
+        leftNone = atlas.findRegion("0002");
+        float speed = 1 / 7f;
+        rightAnimation = new Animation(speed,
+                atlas.findRegion("0000"),
+                atlas.findRegion("0001"));
+        leftAnimation = new Animation(speed,
+                atlas.findRegion("0002"),
+                atlas.findRegion("0003"));
+        rightJumpAnimation = new Animation(speed,
+                atlas.findRegion("0001"));
+        leftJumpAnimation = new Animation(speed,
+                atlas.findRegion("0003"));
+
+        /*rightNone = atlas.findRegion("0000");
         leftNone = atlas.findRegion("0001");
         float speed = 1 / 7f;
         rightAnimation = new Animation(speed,
@@ -46,8 +60,8 @@ public class PlayerSprite extends ASpriteAnimated {
                 atlas.findRegion("0014"),
                 atlas.findRegion("0015"),
                 atlas.findRegion("0016"),
-                atlas.findRegion("0017"));
-        }
+                atlas.findRegion("0017"));*/
+    }
 
     @Override
     public void draw(Batch batch) {

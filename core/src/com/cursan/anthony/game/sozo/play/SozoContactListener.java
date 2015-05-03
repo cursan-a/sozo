@@ -28,51 +28,39 @@ public class SozoContactListener implements ContactListener {
 
         if ((fa.getUserData().equals("foot") && fb.getUserData().equals("bloc")) ||
             (fa.getUserData().equals("bloc") && fb.getUserData().equals("foot"))) {
-            //pv.getPlayer().isOnTheGround(true);
             playerIsOnTheGround = true;
             return;
         }
 
         if (fa.getUserData().equals("foot") && fb.getUserData().getClass().equals(Mob.class)) {
-            //kill enemy
-            System.out.println("Enemy dead !");
             mobsSlew.add((Mob)fb.getUserData());
             return;
         }
         if (fa.getUserData().getClass().equals(Mob.class) && fb.getUserData().equals("foot")) {
-            //kill enemy
-            System.out.println("Enemy dead !");
             mobsSlew.add((Mob)fa.getUserData());
             return;
         }
 
         if (fa.getUserData().equals("body") && fb.getUserData().getClass().equals(Mob.class)) {
-            //kill player
-            System.out.println("Player dead !");
             playerSlewBy = (Mob)fb.getUserData();
             return;
         }
         if (fa.getUserData().getClass().equals(Mob.class) && fb.getUserData().equals("body")) {
-            //kill player
-            System.out.println("Player dead !");
             playerSlewBy = (Mob)fa.getUserData();
             return;
         }
 
         if (fa.getUserData().getClass().equals(Gold.class) && fb.getUserData().equals("body")) {
-            //pv.playerCatchGold((Gold)fa.getUserData());
             goldsCatched.add((Gold)fa.getUserData());
             return;
         }
         if (fa.getUserData().equals("body") && fb.getUserData().getClass().equals(Gold.class)) {
-            //pv.playerCatchGold((Gold)fb.getUserData());
             goldsCatched.add((Gold)fb.getUserData());
             return;
         }
 
         if ((fa.getUserData().equals("body") && fb.getUserData().equals("end")) ||
             (fa.getUserData().equals("end") && fb.getUserData().equals("body"))){
-            //pv.endGame();
             gameTerminated = true;
             return;
         }
@@ -87,12 +75,10 @@ public class SozoContactListener implements ContactListener {
             return;
 
         if (fa.getUserData() != null && fa.getUserData().equals("foot")) {
-            //pv.getPlayer().isOnTheGround(false);
             playerIsOnTheGround = false;
         }
 
         if (fb.getUserData() != null && fb.getUserData().equals("foot")) {
-            //pv.getPlayer().isOnTheGround(false);
             playerIsOnTheGround = false;
         }
     }

@@ -42,9 +42,7 @@ public class SelectLevelView implements IView {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                ResourceManager.getInstance().getSound("valid").play();
-                GameData.getInstance().setLevel(1);
-                GameMaster.getInstance().setState(GameMaster.e_state.PLAY);
+                levelSelect(1);
             }
         });
 
@@ -57,9 +55,7 @@ public class SelectLevelView implements IView {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                ResourceManager.getInstance().getSound("valid").play();
-                GameData.getInstance().setLevel(2);
-                GameMaster.getInstance().setState(GameMaster.e_state.PLAY);
+                levelSelect(2);
             }
         });
 
@@ -72,9 +68,7 @@ public class SelectLevelView implements IView {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                ResourceManager.getInstance().getSound("valid").play();
-                GameData.getInstance().setLevel(3);
-                GameMaster.getInstance().setState(GameMaster.e_state.PLAY);
+                levelSelect(3);
             }
         });
 
@@ -87,7 +81,7 @@ public class SelectLevelView implements IView {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                ResourceManager.getInstance().getSound("valid").play();
+                ResourceManager.getInstance().getSound("mario_mushroom").play();
                 GameMaster.getInstance().setState(GameMaster.e_state.MENU);
             }
         });
@@ -99,6 +93,11 @@ public class SelectLevelView implements IView {
         Gdx.input.setInputProcessor(stage);
     }
 
+    private void levelSelect(int level) {
+        ResourceManager.getInstance().getSound("mario_mushroom").play();
+        GameData.getInstance().setLevel(level);
+        GameMaster.getInstance().setState(GameMaster.e_state.PLAY);
+    }
     @Override
     public void render(float timeElapsed) {
         GameMaster.getInstance().synchronizeCamera();

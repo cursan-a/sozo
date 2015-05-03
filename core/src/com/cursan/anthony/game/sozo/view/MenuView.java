@@ -17,6 +17,7 @@ import com.cursan.anthony.game.sozo.tools.ResourceManager;
 public class MenuView implements IView {
     private Stage stage;
     private TextButton btnPlay;
+    private TextButton btnExit;
     private Sprite bg;
 
     public MenuView() {
@@ -24,23 +25,39 @@ public class MenuView implements IView {
         bg = new Sprite(ResourceManager.getInstance().getTexture("bg"));
         Skin skin = new Skin();
         skin.addRegions(ResourceManager.getInstance().getTextureAtlas("menuButton"));
-        TextButton.TextButtonStyle styleLeft = new TextButton.TextButtonStyle();
-        styleLeft.up = skin.getDrawable("buttonUp");
-        styleLeft.down = skin.getDrawable("buttonDown");
-        styleLeft.font = new BitmapFont();
-        this.btnPlay = new TextButton("Select level", styleLeft);
-        this.btnPlay.setPosition(160, 100);
+        TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
+        style.up = skin.getDrawable("buttonUp");
+        style.down = skin.getDrawable("buttonDown");
+        style.font = new BitmapFont();
+
+        this.btnPlay = new TextButton("Select Level", style);
+        this.btnPlay.setPosition(160, 150);
         this.btnPlay.setWidth(320);
         this.btnPlay.setHeight(70);
-        this.btnPlay.setStyle(styleLeft);
+        this.btnPlay.setStyle(style);
         this.btnPlay.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                ResourceManager.getInstance().getSound("valid").play();
+                ResourceManager.getInstance().getSound("mario_mushroom").play();
                 GameMaster.getInstance().setState(GameMaster.e_state.SELECT_LEVEL);
             }
         });
+
+        this.btnExit = new TextButton("Exit", style);
+        this.btnExit.setPosition(160, 50);
+        this.btnExit.setWidth(320);
+        this.btnExit.setHeight(70);
+        this.btnExit.setStyle(style);
+        this.btnExit.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                super.clicked(event, x, y);
+                GameMaster.getInstance().setState(GameMaster.e_state.START);
+                Gdx.app.exit();
+            }
+        });
+        stage.addActor(this.btnExit);
         stage.addActor(this.btnPlay);
         Gdx.input.setInputProcessor(stage);
     }
