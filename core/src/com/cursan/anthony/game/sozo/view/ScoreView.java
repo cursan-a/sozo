@@ -22,7 +22,7 @@ public class ScoreView implements IView  {
     public ScoreView() {
         stage = new Stage(GameMaster.getInstance().getViewport(), GameMaster.getInstance().getSpriteBatch());
         Skin skin = new Skin();
-        skin.addRegions(ResourceManager.getInstance().getTextureAtlas("startScreenBtn"));
+        skin.addRegions(ResourceManager.getInstance().getTextureAtlas("scoreScreenBtn"));
         TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
         style.up = skin.getDrawable("buttonUp");
         style.down = skin.getDrawable("buttonDown");

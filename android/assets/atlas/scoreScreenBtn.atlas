@@ -1,0 +1,20 @@
+
+scoreScreenBtn.png
+size: 1024,1024
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+buttonDown
+  rotate: false
+  xy: 2, 364
+  size: 640, 360
+  orig: 640, 360
+  offset: 0, 0
+  index: -1
+buttonUp
+  rotate: false
+  xy: 2, 2
+  size: 640, 360
+  orig: 640, 360
+  offset: 0, 0
+  index: -1

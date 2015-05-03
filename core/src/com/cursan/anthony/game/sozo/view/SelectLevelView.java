@@ -27,7 +27,7 @@ public class SelectLevelView implements IView {
         stage = new Stage(GameMaster.getInstance().getViewport(), GameMaster.getInstance().getSpriteBatch());
         bg = new Sprite(ResourceManager.getInstance().getTexture("bg"));
         Skin skin = new Skin();
-        skin.addRegions(ResourceManager.getInstance().getTextureAtlas("menuButton"));
+        skin.addRegions(ResourceManager.getInstance().getTextureAtlas("menuButtonSquare"));
         TextButton.TextButtonStyle style = new TextButton.TextButtonStyle();
         style.up = skin.getDrawable("buttonUp");
         style.down = skin.getDrawable("buttonDown");

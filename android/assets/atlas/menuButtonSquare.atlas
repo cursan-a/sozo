@@ -1,0 +1,20 @@
+
+menuButtonSquare.png
+size: 256,128
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+buttonDown
+  rotate: false
+  xy: 2, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+buttonUp
+  rotate: false
+  xy: 104, 2
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1

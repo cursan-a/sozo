@@ -98,7 +98,9 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
         ResourceManager.getInstance().loadSound("mario_mushroom", "sound/mario_mushroom.wav");
 
         ResourceManager.getInstance().loadTextureAtlas("startScreenBtn", "atlas/startScreenBtn.atlas");
+        ResourceManager.getInstance().loadTextureAtlas("scoreScreenBtn", "atlas/scoreScreenBtn.atlas");
         ResourceManager.getInstance().loadTextureAtlas("menuButton", "atlas/menuButton.atlas");
+        ResourceManager.getInstance().loadTextureAtlas("menuButtonSquare", "atlas/menuButtonSquare.atlas");
         ResourceManager.getInstance().loadTextureAtlas("button", "atlas/button.atlas");
         ResourceManager.getInstance().loadTextureAtlas("button2", "atlas/button2.atlas");
         ResourceManager.getInstance().loadTextureAtlas("gold", "atlas/gold.atlas");
