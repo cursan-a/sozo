@@ -51,6 +51,7 @@ public class Player {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 0.025f;
+        fixtureDef.friction = 0f;
         body.createFixture(fixtureDef).setUserData("body");
         shape.dispose();
 
@@ -60,6 +61,7 @@ public class Player {
                 new Vector2(1 / PlayView.PPM, -(PLAYER_WIDTH - 10) / PlayView.PPM), 0);
         fixtureDef.shape = shape;
         fixtureDef.density = 0.001f;
+        fixtureDef.friction = 0f;
         fixtureDef.isSensor = true;
         body.createFixture(fixtureDef).setUserData("foot");
         shape.dispose();

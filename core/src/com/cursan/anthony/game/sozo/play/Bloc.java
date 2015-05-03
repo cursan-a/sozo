@@ -27,6 +27,7 @@ public class Bloc {
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = polygonShape;
         fixtureDef.density = 1f;
+        fixtureDef.friction = 0f;
         Body body = world.createBody(bodyDef);
         body.createFixture(fixtureDef).setUserData("bloc");
         polygonShape.dispose();

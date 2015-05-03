@@ -141,25 +141,37 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2610">
-              <caret line="59" column="65" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="2640">
+              <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2856#2857#0" expanded="true" />
-                <element signature="e#2885#2886#0" expanded="true" />
-                <element signature="e#4346#4347#0" expanded="true" />
-                <element signature="e#4374#4375#0" expanded="true" />
-                <element signature="e#4709#4710#0" expanded="true" />
-                <element signature="e#4741#4742#0" expanded="true" />
+                <element signature="e#2924#2925#0" expanded="true" />
+                <element signature="e#2953#2954#0" expanded="true" />
+                <element signature="e#4414#4415#0" expanded="true" />
+                <element signature="e#4442#4443#0" expanded="true" />
+                <element signature="e#4777#4778#0" expanded="true" />
+                <element signature="e#4809#4810#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScoreView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Bloc.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Bloc.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.53066665" vertical-offset="236" max-vertical-offset="675">
+              <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScoreView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/ScoreView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63733333" vertical-offset="421" max-vertical-offset="915">
+            <state vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="915">
               <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -1225,17 +1237,17 @@
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/tools/GameData.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/IView.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Mob.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Bloc.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/PlayerSprite.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/StartView.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoContactListener.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/MenuView.java" />
-        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java" />
         <option value="$PROJECT_DIR$/assets/atlas/menuButton.atlas" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/PlayView.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/SelectLevelView.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/GameMaster.java" />
         <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/ScoreView.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java" />
+        <option value="$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Bloc.java" />
       </list>
     </option>
   </component>
@@ -1713,7 +1725,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -2065,16 +2077,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Bloc.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="71" max-vertical-offset="660">
-          <caret line="25" column="61" selection-start-line="25" selection-start-column="61" selection-end-line="25" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/SozoContactListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="915" max-vertical-offset="1665">
@@ -2185,26 +2187,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java">
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/ScoreView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="765" max-vertical-offset="2610">
-          <caret line="59" column="65" selection-start-line="59" selection-start-column="65" selection-end-line="59" selection-end-column="65" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="915">
+          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2856#2857#0" expanded="true" />
-            <element signature="e#2885#2886#0" expanded="true" />
-            <element signature="e#4346#4347#0" expanded="true" />
-            <element signature="e#4374#4375#0" expanded="true" />
-            <element signature="e#4709#4710#0" expanded="true" />
-            <element signature="e#4741#4742#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/view/ScoreView.java">
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63733333" vertical-offset="421" max-vertical-offset="915">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="2640">
+          <caret line="53" column="33" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2924#2925#0" expanded="true" />
+            <element signature="e#2953#2954#0" expanded="true" />
+            <element signature="e#4414#4415#0" expanded="true" />
+            <element signature="e#4442#4443#0" expanded="true" />
+            <element signature="e#4777#4778#0" expanded="true" />
+            <element signature="e#4809#4810#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../core/src/com/cursan/anthony/game/sozo/play/Bloc.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53066665" vertical-offset="236" max-vertical-offset="675">
+          <caret line="29" column="33" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
