@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.cursan.anthony.game.sozo.GameMaster;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 import com.cursan.anthony.game.sozo.tools.GameData;
 import com.cursan.anthony.game.sozo.tools.ResourceManager;
 
@@ -29,8 +30,8 @@ public class ScoreView implements IView  {
         style.font = new BitmapFont();
         this.scoreButton = new TextButton("Score : " + GameData.getInstance().getScore(), style);
         this.scoreButton.setPosition(0, 0);
-        this.scoreButton.setWidth(GameMaster.GAME_WIDTH);
-        this.scoreButton.setHeight(GameMaster.GAME_HEIGHT);
+        this.scoreButton.setWidth(CONFIG.GAME_WIDTH);
+        this.scoreButton.setHeight(CONFIG.GAME_HEIGHT);
         this.scoreButton.setStyle(style);
         this.scoreButton.addListener(new ClickListener() {
             @Override

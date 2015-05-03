@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.cursan.anthony.game.sozo.GameMaster;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 import com.cursan.anthony.game.sozo.tools.ResourceManager;
 
 /**
@@ -27,8 +28,8 @@ public class StartView implements IView {
         styleLeft.down = skin.getDrawable("buttonDown");
         this.mainButton = new Button();
         this.mainButton.setPosition(0, 0);
-        this.mainButton.setWidth(GameMaster.GAME_WIDTH);
-        this.mainButton.setHeight(GameMaster.GAME_HEIGHT);
+        this.mainButton.setWidth(CONFIG.GAME_WIDTH);
+        this.mainButton.setHeight(CONFIG.GAME_HEIGHT);
         this.mainButton.setStyle(styleLeft);
         this.mainButton.addListener(new ClickListener() {
             @Override

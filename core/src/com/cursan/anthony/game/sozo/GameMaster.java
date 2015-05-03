@@ -12,6 +12,7 @@ import com.badlogic.gdx.input.GestureDetector;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.FillViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 import com.cursan.anthony.game.sozo.tools.ResourceManager;
 import com.cursan.anthony.game.sozo.view.IView;
 import com.cursan.anthony.game.sozo.view.MenuView;
@@ -24,9 +25,6 @@ import com.cursan.anthony.game.sozo.view.StartView;
  * Created by cursan_a on 30/04/15.
  */
 public class GameMaster implements ApplicationListener, InputProcessor, GestureDetector.GestureListener {
-    // define
-    public static final int GAME_WIDTH = 640;
-    public static final int GAME_HEIGHT = 360;
 
     // Singleton
     private static GameMaster instance = new GameMaster();
@@ -73,9 +71,9 @@ public class GameMaster implements ApplicationListener, InputProcessor, GestureD
 
     private void initCamera() {
         this.camera = new OrthographicCamera();
-        this.camera.setToOrtho(false, GAME_WIDTH, GAME_HEIGHT);
+        this.camera.setToOrtho(false, CONFIG.GAME_WIDTH, CONFIG.GAME_HEIGHT);
         this.camera.update();
-        this.viewport = new FillViewport(GAME_WIDTH, GAME_HEIGHT, camera);
+        this.viewport = new FillViewport(CONFIG.GAME_WIDTH, CONFIG.GAME_HEIGHT, camera);
         this.viewport.apply();
     }
 

@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cursan.anthony.game.sozo.tools.ASpriteAnimated;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 
 /**
  * Created by cursan_a on 02/05/15.
@@ -15,7 +16,7 @@ public class GoldSprite extends ASpriteAnimated {
 
     public GoldSprite() {
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlas/gold.atlas"));
-        setBounds(0, 0, Gold.GOLD_WIDTH, Gold.GOLD_HEIGHT);
+        setBounds(0, 0, CONFIG.GOLD_WIDTH, CONFIG.GOLD_HEIGHT);
         animation = new Animation(1 / 7f, atlas.getRegions());
     }
 

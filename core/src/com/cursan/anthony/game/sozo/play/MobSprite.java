@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cursan.anthony.game.sozo.tools.ASpriteAnimated;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 
 /**
  * Created by cursan_a on 02/05/15.
@@ -18,7 +19,7 @@ public class MobSprite extends ASpriteAnimated {
 
     public MobSprite(Mob mob) {
         this.mob = mob;
-        setBounds(0, 0, Mob.MOB_WIDTH, Mob.MOB_HEIGHT);
+        setBounds(0, 0, CONFIG.MOB_WIDTH, CONFIG.MOB_HEIGHT);
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal("atlas/mob.atlas"));
         rightNone = atlas.findRegion("0000");
         leftNone = atlas.findRegion("0000");
@@ -27,8 +28,8 @@ public class MobSprite extends ASpriteAnimated {
                 atlas.findRegion("0001"),
                 atlas.findRegion("0002"));
         rightAnimation = new Animation(speed,
-                atlas.findRegion("0004"),
-                atlas.findRegion("0005"));
+                atlas.findRegion("0003"),
+                atlas.findRegion("0004"));
     }
 
 

@@ -6,14 +6,12 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
-import com.cursan.anthony.game.sozo.view.PlayView;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 
 /**
  * Created by cursan_a on 02/05/15.
  */
 public class Mob {
-    public static float MOB_WIDTH = 32.0f;
-    public static float MOB_HEIGHT = 32.0f;
     public enum e_direction {
         RIGHT,
         LEFT
@@ -30,15 +28,15 @@ public class Mob {
 
     public void createSprite(float x, float y) {
         this.sprite = new MobSprite(this);
-        this.sprite.setX(x - MOB_WIDTH / 2.0f);
-        this.sprite.setY(y - MOB_HEIGHT / 2.0f);
+        this.sprite.setX(x - CONFIG.MOB_WIDTH / 2.0f);
+        this.sprite.setY(y - CONFIG.MOB_HEIGHT / 2.0f);
     }
 
     public void createBody(World world) {
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
-        float x = (sprite.getX() + MOB_WIDTH / 2.0f) / PlayView.PPM;
-        float y = (sprite.getY() + MOB_HEIGHT / 2.0f) / PlayView.PPM;
+        float x = (sprite.getX() + CONFIG.MOB_WIDTH / 2.0f) / CONFIG.PPM;
+        float y = (sprite.getY() + CONFIG.MOB_HEIGHT / 2.0f) / CONFIG.PPM;
         bodyDef.position.set(x, y);
         bodyDef.fixedRotation = true;
         body = world.createBody(bodyDef);
@@ -46,7 +44,7 @@ public class Mob {
 
         PolygonShape shape = new PolygonShape();
 
-        shape.setAsBox(MOB_WIDTH / 2.0f / PlayView.PPM, MOB_HEIGHT / 2.0f / PlayView.PPM);
+        shape.setAsBox(CONFIG.MOB_WIDTH / 2.0f / CONFIG.PPM, CONFIG.MOB_HEIGHT / 2.0f / CONFIG.PPM);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 0.025f;
@@ -74,13 +72,14 @@ public class Mob {
         double distance = Math.sqrt(
                 Math.pow((double)(player.getSprite().getX() - this.sprite.getX()), 2.0) +
                 Math.pow((double)(player.getSprite().getY() - this.sprite.getY()), 2.0));
-        if (distance < 400 && distance > 10) {
+        if (distance < 400) {
             if (!hunt) {
                 this.state = e_state.RUN;
                 this.sprite.resetAnimation();
                 hunt = true;
-                this.direction = (player.getSprite().getX() < this.sprite.getX()) ? e_direction.LEFT : e_direction.RIGHT;
             }
+            if (distance > 120)
+                this.direction = (player.getSprite().getX() < this.sprite.getX()) ? e_direction.LEFT : e_direction.RIGHT;
         } else {
             hunt = false;
             this.state = e_state.NONE;
@@ -98,6 +97,6 @@ public class Mob {
         } else
             velocity.x = 0f;
         body.setLinearVelocity(velocity);
-        sprite.setPosition(body.getPosition().x * PlayView.PPM - MOB_WIDTH / 2.0f, body.getPosition().y * PlayView.PPM - MOB_HEIGHT / 2.0f);
+        sprite.setPosition(body.getPosition().x * CONFIG.PPM - CONFIG.MOB_WIDTH / 2.0f, body.getPosition().y * CONFIG.PPM - CONFIG.MOB_HEIGHT / 2.0f);
     }
 }

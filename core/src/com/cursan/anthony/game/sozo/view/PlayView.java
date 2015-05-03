@@ -24,6 +24,7 @@ import com.cursan.anthony.game.sozo.play.Mob;
 import com.cursan.anthony.game.sozo.play.Player;
 import com.cursan.anthony.game.sozo.play.SozoContactListener;
 import com.cursan.anthony.game.sozo.play.SozoMapRenderer;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 import com.cursan.anthony.game.sozo.tools.GameData;
 import com.cursan.anthony.game.sozo.tools.ResourceManager;
 
@@ -33,8 +34,6 @@ import java.util.ArrayList;
  * Created by cursan_a on 30/04/15.
  */
 public class PlayView implements IView {
-    public final static float PPM = 60.0f;
-    public final static float TILED_SIZE = 32.0f;
 
     private TiledMap tiledMap;
     private SozoMapRenderer mapRenderer;
@@ -60,7 +59,7 @@ public class PlayView implements IView {
 
     private void initCamera() {
         this.gameCamera = new OrthographicCamera();
-        this.gameCamera.setToOrtho(false, GameMaster.GAME_WIDTH, GameMaster.GAME_HEIGHT);
+        this.gameCamera.setToOrtho(false, CONFIG.GAME_WIDTH, CONFIG.GAME_HEIGHT);
         this.gameCamera.update();
     }
 
@@ -95,10 +94,10 @@ public class PlayView implements IView {
 
         MapLayer collisionsLayer = tiledMap.getLayers().get("collisions");
         for (MapObject collisionObject : collisionsLayer.getObjects()) {
-            Float x = (Float) collisionObject.getProperties().get("x") / PlayView.PPM;
-            Float y = (Float) collisionObject.getProperties().get("y") / PlayView.PPM;
-            Float width = (Float) collisionObject.getProperties().get("width") / 2.0f / PlayView.PPM;
-            Float height = (Float) collisionObject.getProperties().get("height") / 2.0f / PlayView.PPM;
+            Float x = (Float) collisionObject.getProperties().get("x") / CONFIG.PPM;
+            Float y = (Float) collisionObject.getProperties().get("y") / CONFIG.PPM;
+            Float width = (Float) collisionObject.getProperties().get("width") / 2.0f / CONFIG.PPM;
+            Float height = (Float) collisionObject.getProperties().get("height") / 2.0f / CONFIG.PPM;
             BodyDef bodyDef = new BodyDef();
             bodyDef.type = BodyDef.BodyType.StaticBody;
             bodyDef.position.set(x + width, y + height);
@@ -148,9 +147,9 @@ public class PlayView implements IView {
                 Float height = (Float) itemMapObject.getProperties().get("height");
                 BodyDef bodyDef = new BodyDef();
                 bodyDef.type = BodyDef.BodyType.StaticBody;
-                bodyDef.position.set(x / PlayView.PPM, y / PlayView.PPM);
+                bodyDef.position.set(x / CONFIG.PPM, y / CONFIG.PPM);
                 PolygonShape polygonShape = new PolygonShape();
-                polygonShape.setAsBox(width / PlayView.PPM / 2.0f, height / PlayView.PPM / 2.0f);
+                polygonShape.setAsBox(width / CONFIG.PPM / 2.0f, height / CONFIG.PPM / 2.0f);
                 FixtureDef fixtureDef = new FixtureDef();
                 fixtureDef.shape = polygonShape;
                 fixtureDef.isSensor = true;
@@ -173,8 +172,8 @@ public class PlayView implements IView {
         styleLeft.down = skin.getDrawable("buttonDownLeft");
         this.leftButton = new Button();
         this.leftButton.setPosition(0, 0);
-        this.leftButton.setWidth(GameMaster.GAME_WIDTH / 2);
-        this.leftButton.setHeight(GameMaster.GAME_HEIGHT);
+        this.leftButton.setWidth(CONFIG.GAME_WIDTH / 2.0f);
+        this.leftButton.setHeight(CONFIG.GAME_HEIGHT);
         this.leftButton.setStyle(styleLeft);
         this.leftButton.addListener(new ClickListener() {
             @Override
@@ -194,9 +193,9 @@ public class PlayView implements IView {
         styleRight.up = skin.getDrawable("buttonUp");
         styleRight.down = skin.getDrawable("buttonDownRight");
         this.rightButton = new Button();
-        this.rightButton.setPosition(GameMaster.GAME_WIDTH / 2, 0);
-        this.rightButton.setWidth(GameMaster.GAME_WIDTH / 2);
-        this.rightButton.setHeight(GameMaster.GAME_HEIGHT);
+        this.rightButton.setPosition(CONFIG.GAME_WIDTH / 2, 0);
+        this.rightButton.setWidth(CONFIG.GAME_WIDTH / 2);
+        this.rightButton.setHeight(CONFIG.GAME_HEIGHT);
         this.rightButton.setStyle(styleRight);
         this.rightButton.addListener(new ClickListener() {
             @Override

@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="120" height="20" tilewidth="32" tileheight="32" nextobjectid="104">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="120" height="20" tilewidth="32" tileheight="32" nextobjectid="112">
  <tileset firstgid="1" name="landscape" tilewidth="32" tileheight="32">
   <image source="../img/landscape.png" width="384" height="320"/>
  </tileset>
  <layer name="blocs" width="120" height="20">
   <data encoding="base64" compression="zlib">
-   eJztmEkOwjAMRQNlKlOZylSmAhfgGLDnANz/EvwodJdULNxUjf6T3ioLW/6SI1kpQgghhBBCyL/0YVx3E0ScIRzDJUxr7oXIs4ZbxXxDhfmGDfMNG+YbNsw3bJhv83nCl+ON+Tafd8kb820+n5K3It8zzP20Q4R5/LRxhXfYgV1he7AF20JGytzbRgLqm52+yQ48GDvma5tPVEEWus4MzoVdwAmcCpkos282AhZ/0sqDqWO+tvkkFWSh6xzgUdgT3MG9kJky++YmoN5Z+k+6eDB3zNc2n6yCLHSdLyq4Hq4=
+   eJztmkkOgkAQRVtxwgkHcJ5QL+AxdO8BvP8l/BXtkBiaVRViWy95GzqhOvWTogMYw0cN1mHAeE+lOgzgEEbf3ogigubrN65827ADw9J3pHDiyncKY5iUviOFE823etDs5Jqbmm916MK+efWeq++ab3WYwYXRfH1F8/UbzddvNF+/0Xz9RiLfJVzB9cd1zVeGK7w51iTydaH5ynAvWNN8f59HwZrNdw9T4X1QjUMJdf6Ny9s8jvAMG7DJbMtk3/o5pP8F6H1bj0F6Z2e/Z0kbOvqb159AIAuqM4JjZicmO0tzSOdxmjdzBu0zKS7BxNHfvP5EAllQnQ3cMrsz2VmaQzqP07w5MUgzyz4vpE0d/c3rz1ogC6rzBAXGJEI=
   </data>
  </layer>
- <objectgroup name="golds">
-  <object id="101" x="1952" y="480">
-   <ellipse/>
-  </object>
-  <object id="103" x="3168" y="480">
-   <ellipse/>
-  </object>
- </objectgroup>
+ <objectgroup name="golds"/>
  <objectgroup name="mobs"/>
  <objectgroup name="items">
   <object id="90" name="end" x="3552" y="416" width="64" height="96"/>
@@ -24,9 +17,9 @@
  <objectgroup name="sprites"/>
  <objectgroup name="collisions">
   <object id="92" x="0" y="192" width="64" height="352"/>
-  <object id="93" x="0" y="544" width="1952" height="96"/>
-  <object id="95" x="1952" y="544" width="1216" height="96"/>
-  <object id="97" x="3168" y="544" width="672" height="96"/>
+  <object id="93" x="0" y="544" width="3840" height="96"/>
   <object id="98" x="3776" y="192" width="64" height="352"/>
+  <object id="108" x="608" y="0" width="96" height="448"/>
+  <object id="111" x="800" y="96" width="96" height="448"/>
  </objectgroup>
 </map>

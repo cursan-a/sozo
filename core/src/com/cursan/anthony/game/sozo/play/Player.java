@@ -6,15 +6,13 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 import com.cursan.anthony.game.sozo.tools.ResourceManager;
-import com.cursan.anthony.game.sozo.view.PlayView;
 
 /**
  * Created by cursan_a on 02/05/15.
  */
 public class Player {
-    public final static float PLAYER_WIDTH = 25;
-    public final static float PLAYER_HEIGHT = 41;
     private PlayerSprite sprite;
     private Body body;
     public enum e_state {
@@ -33,13 +31,13 @@ public class Player {
 
     public void createSprite(float x, float y) {
         sprite = new PlayerSprite(this);
-        sprite.setX(x - PLAYER_WIDTH / 2);
-        sprite.setY(y - PLAYER_HEIGHT / 2);
+        sprite.setX(x - CONFIG.PLAYER_WIDTH / 2);
+        sprite.setY(y - CONFIG.PLAYER_HEIGHT / 2);
     }
 
     public void createBody(World world) {
-        float x = (sprite.getX() + PLAYER_WIDTH / 2) / PlayView.PPM;
-        float y = (sprite.getY() + PLAYER_HEIGHT / 2) / PlayView.PPM;
+        float x = (sprite.getX() + CONFIG.PLAYER_WIDTH / 2) / CONFIG.PPM;
+        float y = (sprite.getY() + CONFIG.PLAYER_HEIGHT / 2) / CONFIG.PPM;
 
         BodyDef bodyDef = new BodyDef();
         bodyDef.type = BodyDef.BodyType.DynamicBody;
@@ -50,7 +48,7 @@ public class Player {
 
         PolygonShape shape = new PolygonShape();
 
-        shape.setAsBox(Player.PLAYER_WIDTH / 2.0f / PlayView.PPM, Player.PLAYER_HEIGHT / 2.0f / PlayView.PPM);
+        shape.setAsBox(CONFIG.PLAYER_WIDTH / 2.0f / CONFIG.PPM, CONFIG.PLAYER_HEIGHT / 2.0f / CONFIG.PPM);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
         fixtureDef.density = 0.025f;
@@ -58,9 +56,9 @@ public class Player {
         shape.dispose();
 
         shape = new PolygonShape();
-        shape.setAsBox(Player.PLAYER_WIDTH / 2.0f / PlayView.PPM,
-                5.0f / PlayView.PPM,
-                new Vector2(0.0f, -(PLAYER_WIDTH + 5.0f) / PlayView.PPM), 0.0f);
+        shape.setAsBox((CONFIG.PLAYER_WIDTH - 2.0f) / 2.0f / CONFIG.PPM,
+                5.0f / CONFIG.PPM,
+                new Vector2(1.0f / CONFIG.PPM, -(CONFIG.PLAYER_WIDTH + 5.0f) / CONFIG.PPM), 0.0f);
         fixtureDef.shape = shape;
         fixtureDef.density = 0f;
         fixtureDef.isSensor = true;
@@ -83,7 +81,7 @@ public class Player {
         } else
             velocity.x = 0f;
         body.setLinearVelocity(velocity);
-        sprite.setPosition(body.getPosition().x * PlayView.PPM - PLAYER_WIDTH / 2.0f, body.getPosition().y * PlayView.PPM - PLAYER_HEIGHT / 2.0f);
+        sprite.setPosition(body.getPosition().x * CONFIG.PPM - CONFIG.PLAYER_WIDTH / 2.0f, body.getPosition().y * CONFIG.PPM - CONFIG.PLAYER_HEIGHT / 2.0f);
     }
 
     public PlayerSprite getSprite() {

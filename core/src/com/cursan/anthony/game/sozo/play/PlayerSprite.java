@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.cursan.anthony.game.sozo.tools.ASpriteAnimated;
+import com.cursan.anthony.game.sozo.tools.CONFIG;
 import com.cursan.anthony.game.sozo.tools.ResourceManager;
 
 /**
@@ -23,7 +24,7 @@ public class PlayerSprite extends ASpriteAnimated {
         super();
         this.player = player;
         TextureAtlas atlas = ResourceManager.getInstance().getTextureAtlas("mario");
-        setBounds(0, 0, Player.PLAYER_WIDTH, Player.PLAYER_HEIGHT);
+        setBounds(0, 0, CONFIG.PLAYER_WIDTH, CONFIG.PLAYER_HEIGHT);
         rightNone = atlas.findRegion("0000");
         leftNone = atlas.findRegion("0002");
         float speed = 1 / 7f;
