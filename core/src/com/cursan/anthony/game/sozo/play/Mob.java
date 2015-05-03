@@ -47,7 +47,7 @@ public class Mob {
         shape.setAsBox(CONFIG.MOB_WIDTH / 2.0f / CONFIG.PPM, CONFIG.MOB_HEIGHT / 2.0f / CONFIG.PPM);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
-        fixtureDef.density = 0.025f;
+        fixtureDef.density = 1f;
         body.createFixture(fixtureDef).setUserData(this);
         shape.dispose();
     }

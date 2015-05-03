@@ -51,7 +51,7 @@ public class Player {
         shape.setAsBox(CONFIG.PLAYER_WIDTH / 2.0f / CONFIG.PPM, CONFIG.PLAYER_HEIGHT / 2.0f / CONFIG.PPM);
         FixtureDef fixtureDef = new FixtureDef();
         fixtureDef.shape = shape;
-        fixtureDef.density = 0.025f;
+        fixtureDef.density = 1f;
         body.createFixture(fixtureDef).setUserData("body");
         shape.dispose();
 
@@ -100,9 +100,7 @@ public class Player {
                 state = e_state.RUN;
                 break;
             case RUN:
-                state = e_state.JUMP;
-                body.applyLinearImpulse(new Vector2(0f, 0.08f), body.getWorldCenter(), true);
-                jumpSong();
+                applyJump(true);
                 break;
             case JUMP:
                 direction = e_direction.LEFT;
@@ -125,9 +123,7 @@ public class Player {
                 state = e_state.RUN;
                 break;
             case RUN:
-                state = e_state.JUMP;
-                body.applyLinearImpulse(new Vector2(0f, 0.08f), body.getWorldCenter(), true);
-                jumpSong();
+                applyJump(true);
                 break;
             case JUMP:
                 direction = e_direction.RIGHT;
@@ -164,7 +160,14 @@ public class Player {
             state = (leftDown || rightDown) ? e_state.RUN : e_state.NONE;
     }
 
-    private void jumpSong() {
+    public void applyJump(boolean withSong) {
+        state = e_state.JUMP;
+        Vector2 velocity = body.getLinearVelocity();
+        velocity.y = 0;
+        body.setLinearVelocity(velocity);
+        body.applyLinearImpulse(new Vector2(0f, 3f), body.getWorldCenter(), true);
+        if (!withSong)
+            return;
         int song = (int)(Math.random() * 5.0) + 1;
         ResourceManager.getInstance().getSound("mario_jump_" + song).play();
     }

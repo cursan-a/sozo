@@ -6,6 +6,8 @@ package com.cursan.anthony.game.sozo.tools;
 public abstract class CONFIG {
     public static final int GAME_WIDTH = 640;
     public static final int GAME_HEIGHT = 360;
+    public static final int PLAYVIEW_WIDTH = 960;
+    public static final int PLAYVIEW_HEIGHT = 540;
     public final static float PPM = 60.0f;
     public final static float TILED_SIZE = 32.0f;
     public static float GOLD_WIDTH = 32.0f;

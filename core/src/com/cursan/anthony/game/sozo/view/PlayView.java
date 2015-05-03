@@ -59,7 +59,7 @@ public class PlayView implements IView {
 
     private void initCamera() {
         this.gameCamera = new OrthographicCamera();
-        this.gameCamera.setToOrtho(false, CONFIG.GAME_WIDTH, CONFIG.GAME_HEIGHT);
+        this.gameCamera.setToOrtho(false, CONFIG.PLAYVIEW_WIDTH, CONFIG.PLAYVIEW_HEIGHT);
         this.gameCamera.update();
     }
 
@@ -227,8 +227,8 @@ public class PlayView implements IView {
         mapRenderer.setView(gameCamera);
         GameMaster.getInstance().getSpriteBatch().begin();
         GameMaster.getInstance().getSpriteBatch().draw(ResourceManager.getInstance().getTexture("gamebg"),
-                gameCamera.position.x - CONFIG.GAME_WIDTH / 2,
-                gameCamera.position.y - CONFIG.GAME_HEIGHT / 2);
+                gameCamera.position.x - CONFIG.PLAYVIEW_WIDTH / 2,
+                gameCamera.position.y - CONFIG.PLAYVIEW_HEIGHT / 2);
         GameMaster.getInstance().getSpriteBatch().end();
         mapRenderer.render(timeElapsed);
         stage.draw();
@@ -238,6 +238,7 @@ public class PlayView implements IView {
         Mob playerSlewBy = contactListener.getPlayerSlewBy();
         for (Mob mob : contactListener.getMobsSlew()) {
             if (mobs.contains(mob)) {
+                player.applyJump(false);
                 world.destroyBody(mob.getBody());
                 mapRenderer.removeSprite(mob.getSprite());
                 mobs.remove(mob);
